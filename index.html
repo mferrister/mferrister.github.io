@@ -3,22 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ferrister Mirembe — Research, Operations & Strategic Support</title>
+<title>Ferrister Mirembe — Virtual Assistant & Administrative Support</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --rose: #C94B76;
-    --rose-light: #FBEAF0;
-    --rose-mid: #F4C0D1;
-    --rose-dark: #7A1D42;
-    --sage: #E8EDE6;
-    --cream: #F7F4EF;
-    --ink: #1C1C1C;
-    --muted: #6B6460;
-    --border: #E0DAD4;
+    --navy: #1B3A6B;
+    --navy-light: #EEF2F9;
+    --navy-mid: #B8C8E0;
+    --navy-dark: #0F2347;
+    --sage: #FEFAE8;
+    --cream: #FAFAF7;
+    --ink: #1A1A2E;
+    --muted: #5C6478;
+    --border: #DDE3EE;
     --green: #1D9E75;
     --green-light: #E1F5EE;
+    --yellow: #F5C842;
+    --yellow-light: #FEFAE8;
+    --yellow-dark: #B8940A;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -33,7 +36,7 @@
   /* NAV */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(247,244,239,0.92);
+    background: rgba(250,250,247,0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     padding: 0 clamp(1rem, 5vw, 3rem);
@@ -52,8 +55,8 @@
     padding: 6px 14px; border-radius: 20px;
     cursor: pointer; transition: all 0.2s;
   }
-  .nav-btn:hover { background: var(--rose-light); color: var(--rose); }
-  .nav-btn.active { background: var(--rose); color: #fff; }
+  .nav-btn:hover { background: var(--yellow-light); color: var(--navy); }
+  .nav-btn.active { background: var(--navy); color: #fff; }
 
   /* LAYOUT */
   .page { display: none; }
@@ -68,7 +71,7 @@
   .hero-tag {
     display: inline-block;
     font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
-    color: var(--rose); background: var(--rose-light);
+    color: var(--navy-dark); background: var(--yellow);
     padding: 4px 14px; border-radius: 20px;
     margin-bottom: 1.25rem; text-transform: uppercase;
   }
@@ -78,7 +81,7 @@
     line-height: 1.15; color: var(--ink);
     margin-bottom: 1rem;
   }
-  .hero h1 em { font-style: italic; color: var(--rose); }
+  .hero h1 em { font-style: italic; color: var(--yellow-dark); }
   .hero-sub {
     font-size: 16px; color: var(--muted);
     line-height: 1.75; max-width: 520px;
@@ -107,7 +110,7 @@
   .section-label {
     font-size: 10px; font-weight: 500;
     letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--rose); margin-bottom: 1.5rem;
+    color: var(--navy); margin-bottom: 1.5rem;
   }
 
   /* ABOUT */
@@ -118,28 +121,28 @@
   /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 10px; }
   .skill-pill {
-    background: var(--rose-light);
-    border: 1px solid var(--rose-mid);
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
     border-radius: 10px; padding: 12px 14px;
   }
-  .sp-label { font-size: 13px; font-weight: 500; color: var(--rose-dark); margin-bottom: 3px; }
-  .sp-desc { font-size: 11px; color: #9A5068; }
+  .sp-label { font-size: 13px; font-weight: 500; color: var(--navy); margin-bottom: 3px; }
+  .sp-desc { font-size: 11px; color: var(--muted); }
 
   /* EXPERIENCE */
   .exp-list { display: flex; flex-direction: column; gap: 18px; }
   .exp-item { display: flex; gap: 14px; }
   .exp-line { display: flex; flex-direction: column; align-items: center; gap: 0; flex-shrink: 0; padding-top: 5px; }
-  .exp-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rose); flex-shrink: 0; }
-  .exp-tail { flex: 1; width: 1px; background: var(--rose-mid); margin-top: 4px; }
+  .exp-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
+  .exp-tail { flex: 1; width: 1px; background: var(--navy-mid); margin-top: 4px; }
   .exp-item:last-child .exp-tail { display: none; }
   .exp-role { font-size: 14px; font-weight: 500; color: var(--ink); }
   .exp-org { font-size: 13px; color: var(--muted); margin-top: 2px; }
-  .exp-yr { font-size: 11px; color: #B0A8A2; margin-top: 3px; }
+  .exp-yr { font-size: 11px; color: var(--muted); margin-top: 3px; }
 
   /* RATE CARD */
   .rate-card {
-    background: var(--sage);
-    border: 1px solid #D0D9CD;
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
     border-radius: 14px; padding: 1.75rem;
   }
   .rate-title {
@@ -156,12 +159,12 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 14px; font-weight: 500;
     padding: 10px 22px; border-radius: 25px;
-    background: var(--rose); color: #fff;
+    background: var(--navy); color: #fff;
     border: none; cursor: pointer;
     text-decoration: none;
     transition: background 0.2s, transform 0.15s;
   }
-  .cta-btn:hover { background: var(--rose-dark); transform: translateY(-1px); }
+  .cta-btn:hover { background: var(--navy-dark); transform: translateY(-1px); }
 
   /* PAYMENTS */
   .pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -174,7 +177,7 @@
     padding: 2px 9px; border-radius: 20px;
     color: var(--green); background: var(--green-light);
   }
-  .pay-tag.alt { color: var(--rose); background: var(--rose-light); }
+  .pay-tag.alt { color: var(--yellow-dark); background: var(--yellow-light); }
 
   /* CONTACT */
   .contact-list { display: flex; flex-direction: column; }
@@ -183,7 +186,7 @@
     padding: 13px 0; border-bottom: 1px solid var(--border);
   }
   .contact-row:last-child { border-bottom: none; }
-  .contact-icon { font-size: 18px; color: var(--rose); width: 22px; text-align: center; flex-shrink: 0; }
+  .contact-icon { font-size: 18px; color: var(--yellow-dark); width: 22px; text-align: center; flex-shrink: 0; }
   .contact-label { font-size: 12px; color: var(--muted); width: 72px; flex-shrink: 0; }
   .contact-val { font-size: 14px; color: var(--ink); }
 
@@ -197,7 +200,7 @@
   .p2-hero p { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 480px; }
 
   .passion-blocks { display: flex; flex-direction: column; gap: 18px; }
-  .passion-block { border-left: 2px solid var(--rose-mid); padding-left: 18px; }
+  .passion-block { border-left: 3px solid var(--yellow); padding-left: 18px; }
   .passion-block h3 { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 5px; }
   .passion-block p { font-size: 14px; color: var(--muted); line-height: 1.75; }
 
@@ -208,11 +211,11 @@
     border-radius: 12px; padding: 14px 12px;
     transition: transform 0.15s, border-color 0.15s;
   }
-  .sport-card:hover { transform: translateY(-2px); border-color: var(--rose-mid); }
+  .sport-card:hover { transform: translateY(-2px); border-color: var(--yellow); }
   .sport-emoji { font-size: 22px; margin-bottom: 6px; }
   .sport-type { font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
   .sport-name { font-size: 13px; font-weight: 500; color: var(--ink); margin: 3px 0; }
-  .sport-team { font-size: 12px; color: var(--rose); }
+  .sport-team { font-size: 12px; color: var(--yellow-dark); font-weight: 500; }
 
   /* SOCIALS */
   .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
@@ -223,31 +226,31 @@
     transition: transform 0.15s, border-color 0.15s;
     display: block;
   }
-  .social-card:hover { transform: translateY(-2px); border-color: var(--rose-mid); }
-  .social-icon { font-size: 20px; color: var(--rose); margin-bottom: 6px; }
+  .social-card:hover { transform: translateY(-2px); border-color: var(--yellow); }
+  .social-icon { font-size: 20px; color: var(--yellow-dark); margin-bottom: 6px; }
   .sc-name { font-size: 13px; font-weight: 500; color: var(--ink); }
   .sc-handle { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
   /* PLAYLIST */
   .playlist-card {
-    background: var(--rose-light);
-    border: 1px solid var(--rose-mid);
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
     border-radius: 14px; padding: 1.5rem;
   }
-  .playlist-card h3 { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--rose-dark); margin-bottom: 4px; }
-  .playlist-desc { font-size: 13px; color: #9A5068; line-height: 1.6; margin-bottom: 1rem; }
+  .playlist-card h3 { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--navy-dark); margin-bottom: 4px; }
+  .playlist-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
   .playlist-tracks { display: flex; flex-direction: column; gap: 8px; }
   .track {
     display: flex; align-items: center; gap: 12px;
     padding: 10px 12px;
     background: #fff; border-radius: 10px;
-    border: 1px solid var(--rose-mid);
+    border: 1px solid var(--border);
   }
-  .track-play { font-size: 16px; color: var(--rose); flex-shrink: 0; }
+  .track-play { font-size: 16px; color: var(--navy); flex-shrink: 0; }
   .track-info { flex: 1; }
   .track-title { font-size: 13px; font-weight: 500; color: var(--ink); }
   .track-artist { font-size: 11px; color: var(--muted); }
-  .track-vibe { font-size: 10px; color: var(--rose-dark); background: var(--rose-light); padding: 3px 9px; border-radius: 20px; white-space: nowrap; border: 1px solid var(--rose-mid); }
+  .track-vibe { font-size: 10px; color: var(--yellow-dark); background: var(--yellow-light); padding: 3px 9px; border-radius: 20px; white-space: nowrap; border: 1px solid var(--yellow); }
 
   /* FOOTER */
   footer {
@@ -356,11 +359,90 @@
     <div class="section">
       <div class="section-label">How to pay me</div>
       <p style="font-size:13px;color:var(--muted);margin-bottom:1rem;">Payment details are shared privately after job negotiation and on request only.</p>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem;line-height:1.7;">Payment details are shared after job negotiation and on request only. The options below are available depending on your location and preference.</p>
       <div class="pay-grid">
-        <div class="pay-card"><div class="pay-name">Payoneer</div><div class="pay-desc">Best for platform-based work — Upwork, Fiverr, direct transfers</div><span class="pay-tag">Preferred</span></div>
-        <div class="pay-card"><div class="pay-name">Grey</div><div class="pay-desc">USD / GBP / EUR bank account — details shared on invoice</div><span class="pay-tag">Preferred</span></div>
-        <div class="pay-card"><div class="pay-name">Sendwave</div><div class="pay-desc">Direct to MTN or Airtel Money, Uganda</div><span class="pay-tag alt">Available</span></div>
-        <div class="pay-card"><div class="pay-name">Bank transfer</div><div class="pay-desc">Local Ugandan bank — details shared on request</div><span class="pay-tag alt">Available</span></div>
+        <div class="pay-card"><div class="pay-name">Bank Transfer</div><div class="pay-desc">Direct to a Ugandan bank account. Details shared on request after we agree terms.</div><span class="pay-tag">Preferred</span></div>
+        <div class="pay-card"><div class="pay-name">Western Union</div><div class="pay-desc">International transfer, received in Uganda. Straightforward for most locations.</div><span class="pay-tag">Preferred</span></div>
+        <div class="pay-card"><div class="pay-name">Sendwave</div><div class="pay-desc">Direct to MTN or Airtel Mobile Money, Uganda. Works well for UK and US senders.</div><span class="pay-tag alt">Available</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">What people say</div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative;">
+          <div style="font-size:36px;color:var(--yellow);font-size:40px;line-height:1;margin-bottom:0.75rem;">"</div>
+          <p style="font-size:15px;color:var(--ink);line-height:1.8;font-style:italic;margin-bottom:1rem;">Ferrister joined us as Secretary and Administrative Assistant and immediately brought a level of organisation we had not had before. Within her first month she had designed a full term activity calendar and set up an inventory tracking system that we still use today. She manages our correspondence, handles parent communication, coordinates scheduling, and keeps our records accurate without needing to be reminded. She is reliable, discreet, and genuinely invested in the work. I would recommend her without hesitation for any administrative or coordination role.</p>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--navy-dark);">AM</div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--ink);">Abraham Mulungi</div>
+              <div style="font-size:12px;color:var(--muted);">Bursar & Co-Director, Wajabu Christian Junior Primary School</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;">
+          <div style="font-size:36px;color:var(--yellow);font-size:40px;line-height:1;margin-bottom:0.75rem;">"</div>
+          <p style="font-size:15px;color:var(--ink);line-height:1.8;font-style:italic;margin-bottom:1rem;">I worked with Ferrister across two organisations and she consistently delivered work that went beyond what was asked. She handled our social media content, designed materials in Canva, drafted newsletters, programme documents, and director portfolios entirely independently. Everything she produced was professional, well-structured, and ready to share externally without revision. What stood out most was that she understood what we were trying to communicate and translated that into materials that genuinely represented us well. She is creative, thorough, and trustworthy with sensitive information. I would not hesitate to recommend her.</p>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--navy-dark);">BN</div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--ink);">Bernah Namutebi</div>
+              <div style="font-size:12px;color:var(--muted);">Director, My Shepherd Ministries & Savannah Women's Health</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Work samples</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem;">A selection of real and practice work showing how I think and what I can do. More being added regularly.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;">
+
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
+          <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Newsletter design & writing</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">SWHA 3-Month Impact Newsletter</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Savannah Women's Health Africa — Issue 2, July 2025. Layout, writing, and production.</div>
+          <a href="SWHA_Newsletter_Ferrister_Mirembe.pdf" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Download PDF ↗</a>
+        </div>
+
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
+          <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Social media design</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">My Shepherd Ministry</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Graphics, copy and content posted on behalf of the organisation</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <a href="https://www.instagram.com/myshepherdministryug?igsh=MThpbzd1aWxianBkdA==" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">View profile ↗</a>
+            <a href="https://www.instagram.com/p/DOaO-ftDKow/?igsh=MTRzbjRjZ2Eybzh2Mg==" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Post 1 ↗</a>
+            <a href="https://www.instagram.com/p/DMFAgk2Iwhq/?igsh=MXF0aHZhOGtvZ2U2dg==" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Post 2 ↗</a>
+            <a href="https://www.instagram.com/p/DL1pnmlsWhc/?igsh=YWQyc3hheXZoMTU2" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Post 3 ↗</a>
+            <a href="https://www.instagram.com/p/DHSbnvGol7W/?igsh=MXFvNWhtOWY0OTl1cw==" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Post 4 ↗</a>
+            <a href="https://www.instagram.com/p/DLO0xtJIRLV/?igsh=ZGJ0djR1NWk2emJ4" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Post 5 ↗</a>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
+          <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Research & writing</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">Published on Substack</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Long-form research and analysis pieces on African sport and business</div>
+          <a href="https://cmdsportafrica.substack.com" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Visit Substack ↗</a>
+        </div>
+
+        <div style="background:#fff;border:1px dashed var(--border);border-radius:10px;padding:14px;opacity:0.7;">
+          <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Coming soon</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">Project tracker sample</div>
+          <div style="font-size:12px;color:var(--muted);">Excel case study in progress</div>
+        </div>
+
+        <div style="background:#fff;border:1px dashed var(--border);border-radius:10px;padding:14px;opacity:0.7;">
+          <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Coming soon</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">Calendar management sample</div>
+          <div style="font-size:12px;color:var(--muted);">Executive scheduling case study</div>
+        </div>
+
       </div>
     </div>
 
