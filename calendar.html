@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Calendar & Operations Management — Ferrister Mirembe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B3A6B;--navy-light:#EEF2F9;--navy-mid:#B8C8E0;--navy-dark:#0F2347;
+  --yellow:#F5C842;--yellow-light:#FEFAE8;--yellow-dark:#B8940A;
+  --cream:#FAFAF7;--ink:#1A1A2E;--muted:#5C6478;--border:#DDE3EE;
+  --green:#1D9E75;--green-light:#E1F5EE;
+  --amber:#F59E0B;--amber-light:#FEF3C7;
+  --red:#DC2626;--red-light:#FEE2E2;
+  --blue:#378ADD;--blue-light:#E6F1FB;--blue-dark:#0C447C;
+  --purple:#7F77DD;--purple-light:#EEEDFE;--purple-dark:#3C3489;
+  --coral:#D85A30;--coral-light:#FAECE7;--coral-dark:#4A1B0C;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.6;}
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 clamp(1rem,5vw,3rem);display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink);text-decoration:none;}
+.nav-back{font-size:13px;color:var(--muted);text-decoration:none;}
+.nav-back:hover{color:var(--navy);}
+.container{max-width:960px;margin:0 auto;padding:2rem clamp(1rem,5vw,2rem) 4rem;}
+.page-title{font-family:'DM Serif Display',serif;font-size:clamp(24px,5vw,34px);color:var(--ink);margin-bottom:0.5rem;}
+.page-sub{font-size:14px;color:var(--muted);line-height:1.7;max-width:620px;margin-bottom:0.5rem;}
+.disclaimer{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:2rem;padding:0.75rem 1rem;background:var(--yellow-light);border:1px solid var(--yellow);border-radius:8px;}
+
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1.5rem;}
+.metric{background:#fff;border:1px solid var(--border);border-radius:10px;padding:0.85rem 1rem;}
+.metric-num{font-size:22px;font-weight:500;color:var(--navy);}
+.metric-label{font-size:11px;color:var(--muted);margin-top:2px;}
+
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:1.25rem;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);}
+.leg-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+
+.week-label{font-size:12px;font-weight:500;color:var(--navy);background:var(--navy-light);display:inline-block;padding:3px 12px;border-radius:20px;margin-bottom:0.75rem;}
+
+.cal-wrap{overflow-x:auto;margin-bottom:1.5rem;}
+.cal-header{display:grid;grid-template-columns:68px repeat(5,1fr);gap:4px;margin-bottom:4px;min-width:580px;}
+.day-head{text-align:center;font-size:11px;font-weight:500;color:var(--muted);padding:6px 0;border-radius:6px;background:#fff;border:1px solid var(--border);}
+.cal-grid{display:grid;grid-template-columns:68px repeat(5,1fr);gap:4px;min-width:580px;}
+.time-col{display:flex;flex-direction:column;gap:4px;}
+.time-label{height:56px;font-size:10px;color:var(--muted);text-align:right;padding-right:8px;display:flex;align-items:center;justify-content:flex-end;}
+.day-col{display:flex;flex-direction:column;gap:4px;}
+.slot{height:56px;border-radius:8px;background:#fff;border:1px solid var(--border);position:relative;overflow:hidden;}
+.event{position:absolute;inset:3px;border-radius:6px;padding:4px 6px;cursor:pointer;transition:opacity 0.15s;}
+.event:hover{opacity:0.8;}
+.event-title{font-size:10px;font-weight:500;line-height:1.3;}
+.event-time{font-size:9px;margin-top:1px;opacity:0.75;}
+
+.ev-exec{background:var(--navy-light);border-left:3px solid var(--navy);}
+.ev-exec .event-title,.ev-exec .event-time{color:var(--navy-dark);}
+.ev-ext{background:var(--blue-light);border-left:3px solid var(--blue);}
+.ev-ext .event-title,.ev-ext .event-time{color:var(--blue-dark);}
+.ev-int{background:#EAF3DE;border-left:3px solid var(--green);}
+.ev-int .event-title,.ev-int .event-time{color:#27500A;}
+.ev-admin{background:var(--yellow-light);border-left:3px solid var(--yellow);}
+.ev-admin .event-title,.ev-admin .event-time{color:var(--yellow-dark);}
+.ev-buf{background:var(--purple-light);border-left:3px solid var(--purple);}
+.ev-buf .event-title,.ev-buf .event-time{color:var(--purple-dark);}
+.ev-parent{background:var(--coral-light);border-left:3px solid var(--coral);}
+.ev-parent .event-title,.ev-parent .event-time{color:#712B13;}
+.ev-doc{background:#F1EFE8;border-left:3px solid #888780;}
+.ev-doc .event-title,.ev-doc .event-time{color:#444441;}
+
+.panel{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.25rem;}
+.panel-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:0.75rem;}
+.detail-card{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;}
+.detail-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
+.detail-tag{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;}
+.tag-exec{background:var(--navy-light);color:var(--navy);}
+.tag-ext{background:var(--blue-light);color:var(--blue-dark);}
+.tag-int{background:#EAF3DE;color:#27500A;}
+.tag-admin{background:var(--yellow-light);color:var(--yellow-dark);}
+.tag-buf{background:var(--purple-light);color:var(--purple-dark);}
+.tag-parent{background:var(--coral-light);color:#712B13;}
+.tag-doc{background:#F1EFE8;color:#444441;}
+.detail-name{font-size:15px;font-weight:500;color:var(--ink);}
+.detail-time{font-size:12px;color:var(--muted);margin-bottom:10px;}
+.detail-row{display:flex;gap:10px;margin-bottom:6px;font-size:13px;color:var(--muted);line-height:1.6;}
+.detail-row b{color:var(--ink);font-weight:500;min-width:110px;flex-shrink:0;}
+
+.action-table{width:100%;border-collapse:collapse;font-size:12px;}
+.action-table th{text-align:left;padding:8px 10px;font-size:11px;font-weight:500;color:var(--muted);border-bottom:1px solid var(--border);}
+.action-table td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--ink);}
+.action-table tr:last-child td{border-bottom:none;}
+.action-table tr:hover td{background:var(--cream);}
+.status-pill{display:inline-block;font-size:10px;font-weight:500;padding:2px 9px;border-radius:20px;}
+.s-done{background:var(--green-light);color:var(--green);}
+.s-prog{background:var(--yellow-light);color:var(--yellow-dark);}
+.s-not{background:var(--cream);color:var(--muted);border:1px solid var(--border);}
+.s-block{background:var(--red-light);color:var(--red);}
+
+.philosophy{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:1rem;}
+.phi-card{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:1rem;}
+.phi-num{font-size:22px;font-weight:500;color:var(--yellow);margin-bottom:4px;}
+.phi-head{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:4px;}
+.phi-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+
+footer{border-top:1px solid var(--border);padding:1.5rem clamp(1rem,5vw,3rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted);}
+footer a{color:var(--navy);text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">Ferrister Mirembe</a>
+  <a class="nav-back" href="index.html">← Back to portfolio</a>
+</nav>
+
+<div class="container">
+  <div class="page-title">Calendar & operations management</div>
+  <p class="page-sub">A sample week showing how I manage scheduling, parent communications, documentation, team coordination, and administrative operations — all at once, without things falling through the gaps. Click any event to see the full detail.</p>
+  <div class="disclaimer">School name and staff names are fictional. The systems, logic, and types of tasks shown are drawn directly from my real work as Secretary and Administrative Assistant at Wajabu Christian Junior Primary School.</div>
+
+  <div class="metrics">
+    <div class="metric"><div class="metric-num">18</div><div class="metric-label">Tasks this week</div></div>
+    <div class="metric"><div class="metric-num">47</div><div class="metric-label">Parents notified</div></div>
+    <div class="metric"><div class="metric-num">6</div><div class="metric-label">Assessments printed</div></div>
+    <div class="metric"><div class="metric-num">100%</div><div class="metric-label">Reminders sent on time</div></div>
+    <div class="metric"><div class="metric-num">24h</div><div class="metric-label">Minutes turnaround</div></div>
+  </div>
+
+  <div class="legend">
+    <div class="leg-item"><div class="leg-dot" style="background:var(--navy);"></div>Director / executive</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--blue);"></div>External / visitors</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--green);"></div>Team / internal</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--yellow);"></div>Admin / operations</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--coral);"></div>Parent communications</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#888780;"></div>Documentation</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--purple);"></div>Buffer / focus</div>
+  </div>
+
+  <div class="week-label">Week 6 — Term II 2025 | Visitation Day preparation week</div>
+
+  <div class="cal-wrap">
+    <div class="cal-header">
+      <div></div>
+      <div class="day-head">Mon 11 Aug</div>
+      <div class="day-head">Tue 12 Aug</div>
+      <div class="day-head">Wed 13 Aug</div>
+      <div class="day-head">Thu 14 Aug</div>
+      <div class="day-head">Fri 15 Aug</div>
+    </div>
+    <div class="cal-grid" id="cal"></div>
+  </div>
+
+  <p style="font-size:11px;color:var(--muted);text-align:center;margin-bottom:1.25rem;">Click any event to view full task detail below</p>
+
+  <div class="panel" id="detail-panel">
+    <div class="panel-title">Task detail</div>
+    <div id="detail-placeholder" style="font-size:13px;color:var(--muted);">Select an event above to view the full task breakdown.</div>
+    <div id="detail-content" style="display:none;"></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Action item tracker — Week 6</div>
+    <div style="overflow-x:auto;">
+    <table class="action-table">
+      <thead><tr><th>Date</th><th>Action item</th><th>Owner</th><th>Deadline</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Mon 11</td><td>Send Visitation Day reminder to all 47 parents via WhatsApp and SMS</td><td>Ferrister M.</td><td>Mon 11 EOD</td><td><span class="status-pill s-done">Complete</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Mon 11</td><td>Print and collate Week 6 assessments for all 6 classes — 180 copies total</td><td>Ferrister M.</td><td>Tue 12 morning</td><td><span class="status-pill s-done">Complete</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Mon 11</td><td>Send weekly activity update to all staff via Slack — include Visitation Day schedule</td><td>Ferrister M.</td><td>Mon 11, 8:30 AM</td><td><span class="status-pill s-done">Complete</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Tue 12</td><td>Confirm catering for Visitation Day — tea, water, and snacks for 80 guests</td><td>Ferrister M.</td><td>Wed 13</td><td><span class="status-pill s-done">Complete</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Tue 12</td><td>Compile teacher submission log — confirm all 6 assessment sets received</td><td>Ferrister M.</td><td>Tue 12 EOD</td><td><span class="status-pill s-done">Complete</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Wed 13</td><td>Prepare Visitation Day programme booklet — print 100 copies before Thursday</td><td>Ferrister M.</td><td>Thu 14 morning</td><td><span class="status-pill s-prog">In progress</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Wed 13</td><td>Document departmental meeting minutes and circulate to all staff by Thursday</td><td>Ferrister M.</td><td>Thu 14, 9:00 AM</td><td><span class="status-pill s-prog">In progress</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Thu 14</td><td>Send Visitation Day day-before reminder to parents — include arrival time and venue layout</td><td>Ferrister M.</td><td>Thu 14, 3:00 PM</td><td><span class="status-pill s-not">Not started</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Thu 14</td><td>Confirm P.5 parent meeting agenda with class teacher and circulate to attendees</td><td>Ferrister M.</td><td>Thu 14 EOD</td><td><span class="status-pill s-not">Not started</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Thu 14</td><td>Assessment submission deadline — all teachers submit marked Week 6 papers</td><td>All teachers</td><td>Thu 14 EOD</td><td><span class="status-pill s-block">Awaiting</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Fri 15</td><td>Manage Visitation Day operations — registration, parent hosting, logistics coordination</td><td>Ferrister M.</td><td>Fri 15 all day</td><td><span class="status-pill s-not">Not started</span></td></tr>
+        <tr><td style="color:var(--muted);white-space:nowrap;">Fri 15</td><td>Post-Visitation Day report to Director — attendance, feedback, observations</td><td>Ferrister M.</td><td>Fri 15 EOD</td><td><span class="status-pill s-not">Not started</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">My approach to operations and calendar management</div>
+    <div class="philosophy">
+      <div class="phi-card"><div class="phi-num">1</div><div class="phi-head">Audit every Monday</div><div class="phi-desc">Review the full week before it starts. Identify what needs sending, printing, confirming, or escalating. Nothing should surprise leadership mid-week.</div></div>
+      <div class="phi-card"><div class="phi-num">2</div><div class="phi-head">Communicate early</div><div class="phi-desc">Parent reminders go out days before events, not the morning of. Staff updates go out Monday morning. Stakeholders always know what is coming.</div></div>
+      <div class="phi-card"><div class="phi-num">3</div><div class="phi-head">Document everything</div><div class="phi-desc">Every meeting has minutes. Every decision has a record. Every task has an owner and a deadline. Nothing lives only in someone's head.</div></div>
+      <div class="phi-card"><div class="phi-num">4</div><div class="phi-head">Track to completion</div><div class="phi-desc">Action items are followed up before deadlines, not after. If something is at risk, leadership knows in advance, not when it is already late.</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>Ferrister Mirembe · Kampala, Uganda</span>
+  <span><a href="mailto:mferrister@gmail.com">mferrister@gmail.com</a> · <a href="index.html">mferrister.github.io</a></span>
+</footer>
+
+<script>
+const times = ["7:30","8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00"];
+const days  = ["Mon","Tue","Wed","Thu","Fri"];
+
+const events = {
+  "Mon-7":  {title:"Weekly Slack update to staff",type:"int",time:"7:30–8:00",who:"Ferrister M.",what:"Send weekly activity text via Slack to all staff. Includes week overview, key deadlines, Visitation Day reminder, and assessment submission dates.",tools:"Slack, Google Calendar",action:"Update sent by 8:00 AM every Monday without fail."},
+  "Mon-8":  {title:"Week audit & task review",type:"admin",time:"8:00–9:00",who:"Ferrister M.",what:"Review full week calendar. Flag conflicts, identify what needs printing, confirm meetings, check outstanding action items from last week.",tools:"Google Sheets, Google Calendar",action:"Week 6 task list finalised. Printer booked for Tuesday assessment run."},
+  "Mon-9":  {title:"Parent Visitation Day reminder",type:"parent",time:"9:00–10:00",who:"Ferrister M.",what:"Send Visitation Day reminder to all 47 parents via WhatsApp and SMS. Message includes date (Friday 15 Aug), arrival time (8:30 AM), programme overview, and what to bring.",tools:"WhatsApp Business, SMS",action:"47 messages sent. Delivery confirmed. 12 parents replied — responses logged."},
+  "Mon-10": {title:"Director briefing",type:"exec",time:"10:00–10:30",who:"Director, Ferrister M.",what:"Weekly Monday check-in with Director. Review week priorities, flag Visitation Day logistics, confirm assessment submission deadline with teaching staff.",tools:"In person / Google Meet",action:"Director confirmed catering budget. Ferrister to arrange tea and snacks for 80 guests by Wednesday."},
+  "Mon-11": {title:"Assessment printing prep",type:"doc",time:"11:00–12:00",who:"Ferrister M.",what:"Collate all 6 assessment sets from teachers for Week 6. Check for missing submissions. Format for printing. Book printer time for Tuesday morning.",tools:"Google Drive, Printer",action:"5 of 6 sets received. P.6 teacher reminded — submission due end of day."},
+  "Mon-14": {title:"Admin & correspondence",type:"admin",time:"14:00–15:00",who:"Ferrister M.",what:"Clear inbox, draft outgoing letters, update student attendance records, file incoming documents from last week.",tools:"Gmail, Google Drive",action:"Inbox cleared. 3 parent queries responded to. Records updated."},
+
+  "Tue-8":  {title:"Print Week 6 assessments",type:"doc",time:"8:00–9:30",who:"Ferrister M.",what:"Print and collate 180 copies of Week 6 assessments across 6 classes (30 per class). Staple and label by class. Deliver to each classroom before first lesson.",tools:"Printer, Google Drive",action:"All 180 copies printed and delivered to classrooms by 9:30 AM."},
+  "Tue-9":  {title:"Staff standup",type:"int",time:"9:30–10:00",who:"All teaching staff, Ferrister M.",what:"Quick Monday-ish check-in (delayed due to printing). Assessment distribution confirmed. Visitation Day roles assigned. Any concerns raised.",tools:"Staffroom meeting",action:"P.4 teacher raised concern about student participation numbers for Visitation Day display. Ferrister to follow up with parents of absent students."},
+  "Tue-10": {title:"Assessment submission log",type:"doc",time:"10:00–11:00",who:"Ferrister M.",what:"Compile teacher assessment submission tracker. Log who has submitted, which class, date received. Chase any outstanding sets. File all received assessments.",tools:"Google Sheets",action:"All 6 sets now received and logged. Tracker updated and shared with Director."},
+  "Tue-11": {title:"Catering confirmation",type:"admin",time:"11:00–11:30",who:"Ferrister M., Supplier",what:"Call catering supplier to confirm Visitation Day order — tea, water, and snacks for 80 guests. Confirm delivery time (7:30 AM Friday) and payment terms.",tools:"Phone, WhatsApp",action:"Catering confirmed. Supplier to arrive Friday 7:30 AM. Invoice filed."},
+  "Tue-13": {title:"Parent query follow-up",type:"parent",time:"13:00–14:00",who:"Ferrister M.",what:"Follow up with 6 parents who did not confirm Visitation Day attendance. Call and WhatsApp. Log responses in parent communication log.",tools:"WhatsApp, Phone, Google Sheets",action:"4 confirmed attendance. 2 unable to attend — class teacher informed."},
+  "Tue-14": {title:"Buffer / documentation",type:"buf",time:"14:00–15:00",who:"Ferrister M.",what:"Protected time for filing, organising Google Drive, and clearing outstanding small tasks before Wednesday's heavy documentation day.",tools:"Google Drive",action:"Drive organised. Visitation Day folder created with all relevant documents."},
+
+  "Wed-8":  {title:"Departmental meeting",type:"int",time:"8:00–9:00",who:"All dept heads, Director, Ferrister M.",what:"Mid-term departmental review. Progress against term targets, Visitation Day final logistics, staffing for Friday, any parent concerns to flag.",tools:"Staffroom, Google Meet for remote staff",action:"Ferrister takes minutes in real time. Action items logged during meeting."},
+  "Wed-9":  {title:"Minutes drafting",type:"doc",time:"9:00–10:30",who:"Ferrister M.",what:"Draft full meeting minutes from departmental meeting. Format, check accuracy, add action items with owners and deadlines. Circulate to all staff by Thursday 9 AM.",tools:"Google Docs",action:"Draft complete. Sent to Director for review before circulation."},
+  "Wed-10": {title:"Programme booklet design",type:"doc",time:"10:00–12:00",who:"Ferrister M.",what:"Design and lay out Visitation Day programme booklet in Canva. Include schedule, welcome message from Director, class display guide, and contact information.",tools:"Canva, Google Drive",action:"Design complete. Sent to Director for approval. Print 100 copies Thursday morning."},
+  "Wed-13": {title:"Inventory check",type:"admin",time:"13:00–14:00",who:"Ferrister M.",what:"Weekly consumables check. Update inventory tracker. Flag low stock items — printer paper (3 reams left) and chalk (2 boxes). Raise procurement request.",tools:"Google Sheets",action:"Procurement request raised. Emergency paper order confirmed for delivery Thursday."},
+  "Wed-14": {title:"Parent communication log update",type:"parent",time:"14:00–15:00",who:"Ferrister M.",what:"Update parent communication log with all week's interactions. Ensure all queries, responses, and follow-up statuses are recorded accurately.",tools:"Google Sheets",action:"Log updated. 23 interactions recorded this week so far."},
+  "Wed-15": {title:"Buffer / prep",type:"buf",time:"15:00–16:00",who:"Ferrister M.",what:"Protected time. Review Thursday's task list. Ensure all pre-Visitation Day items are on track.",tools:"Google Calendar, Google Sheets",action:"Thursday plan confirmed. Two items flagged as at risk — escalated to Director."},
+
+  "Thu-8":  {title:"Print programme booklets",type:"doc",time:"8:00–9:00",who:"Ferrister M.",what:"Print 100 copies of Visitation Day programme booklet. Collate and place at registration table, in each classroom display area, and at the entrance.",tools:"Printer, Canva PDF",action:"100 copies printed and distributed to correct locations before school opens."},
+  "Thu-9":  {title:"Circulate meeting minutes",type:"doc",time:"9:00–9:30",who:"Ferrister M.",what:"Send finalised departmental meeting minutes to all staff via email and Slack. Confirm receipt from all department heads.",tools:"Gmail, Slack",action:"Minutes circulated. All 8 dept heads confirmed receipt by midday."},
+  "Thu-10": {title:"P.5 parent meeting",type:"parent",time:"10:00–11:00",who:"P.5 class teacher, 12 parents, Ferrister M.",what:"Scheduled parent meeting for P.5 — academic progress update, behaviour concerns, and preparation for end-of-term exams. Ferrister coordinates, attends, and minutes.",tools:"School hall, Google Docs",action:"Minutes drafted. 3 action items arising — all assigned and added to tracker."},
+  "Thu-11": {title:"Assessment deadline follow-up",type:"admin",time:"11:00–12:00",who:"Ferrister M.",what:"Today is the deadline for all teachers to submit marked Week 6 assessments. Collect outstanding papers, update submission tracker, file all marked work.",tools:"Google Sheets, Physical files",action:"All submissions received by 1:00 PM. Tracker complete."},
+  "Thu-13": {title:"Visitation Day day-before reminder",type:"parent",time:"13:00–14:00",who:"Ferrister M.",what:"Send day-before Visitation Day reminder to all 47 parents. Include arrival time (8:30 AM), gate to use, parking guidance, and Friday programme outline.",tools:"WhatsApp Business, SMS",action:"47 messages sent. Response log updated. Final attendance count: 39 confirmed."},
+  "Thu-14": {title:"Visitation Day final prep",type:"exec",time:"14:00–15:30",who:"Director, Ferrister M., School captain",what:"Final walkthrough of Visitation Day logistics. Confirm roles, registration setup, classroom display readiness, catering arrival time, and contingency for rain.",tools:"Physical walkthrough, checklist",action:"All stations confirmed. Checklist signed off by Director."},
+
+  "Fri-7":  {title:"Visitation Day setup",type:"admin",time:"7:30–8:30",who:"Ferrister M., Support staff",what:"Set up registration table, arrange chairs in assembly area, confirm catering arrived and is in place, brief student prefects on their roles.",tools:"Checklist, physical setup",action:"Setup complete by 8:25 AM. All stations ready before first parents arrive."},
+  "Fri-8":  {title:"Visitation Day — registration",type:"ext",time:"8:30–10:00",who:"Ferrister M., Parents, Staff",what:"Manage parent registration as they arrive. Sign in, provide programme booklet, direct to classrooms, handle any queries. Log attendance in real time.",tools:"Attendance sheet, Google Sheets",action:"39 parents registered. 4 walk-ins added to log. No issues at gate."},
+  "Fri-10": {title:"Visitation Day — open day activities",type:"ext",time:"10:00–12:00",who:"All parents, All classes, Director, Ferrister M.",what:"Parents visit classrooms, view displays, interact with teachers. Ferrister coordinates logistics, handles queries, supports Director with hosting duties.",tools:"Programme booklet, radio",action:"All 6 classroom stations running. Director speech at 11:00 AM — notes prepared."},
+  "Fri-13": {title:"Parent feedback collection",type:"parent",time:"13:00–14:00",who:"Ferrister M., Parents",what:"Distribute and collect parent feedback forms before they leave. Compile initial responses. Flag any urgent concerns for Director's attention.",tools:"Paper forms, Google Forms",action:"32 of 39 forms returned. 2 urgent concerns flagged — Director briefed before parents left."},
+  "Fri-14": {title:"Post-event report",type:"doc",time:"14:00–16:00",who:"Ferrister M.",what:"Write post-Visitation Day report for Director. Include attendance numbers, parent feedback summary, what worked, what to improve, and recommendations for next term.",tools:"Google Docs",action:"Report submitted to Director by 4:00 PM. Filed in school records."},
+};
+
+const typeClass = {exec:"ev-exec",ext:"ev-ext",int:"ev-int",admin:"ev-admin",buf:"ev-buf",parent:"ev-parent",doc:"ev-doc"};
+const typeLabel = {exec:"Director / executive",ext:"External / visitors",int:"Team / internal",admin:"Admin / operations",buf:"Buffer / focus",parent:"Parent communications",doc:"Documentation"};
+const tagClass  = {exec:"tag-exec",ext:"tag-ext",int:"tag-int",admin:"tag-admin",buf:"tag-buf",parent:"tag-parent",doc:"tag-doc"};
+
+const cal = document.getElementById("cal");
+
+const tc = document.createElement("div");
+tc.className = "time-col";
+times.forEach(t => {
+  const tl = document.createElement("div");
+  tl.className = "time-label";
+  tl.textContent = t;
+  tc.appendChild(tl);
+});
+cal.appendChild(tc);
+
+days.forEach(day => {
+  const col = document.createElement("div");
+  col.className = "day-col";
+  times.forEach(t => {
+    const parts = t.split(":");
+    const hour = parseInt(parts[0]);
+    const isHalf = parts[1] === "30";
+    const key = isHalf ? `${day}-${hour}h` : `${day}-${hour}`;
+    const slot = document.createElement("div");
+    slot.className = "slot";
+    const ev = events[key] || events[`${day}-${hour}`];
+    if (ev && !isHalf) {
+      const evDiv = document.createElement("div");
+      evDiv.className = `event ${typeClass[ev.type]}`;
+      evDiv.innerHTML = `<div class="event-title">${ev.title}</div><div class="event-time">${ev.time}</div>`;
+      evDiv.onclick = () => showDetail(ev);
+      slot.appendChild(evDiv);
+    }
+    col.appendChild(slot);
+  });
+  cal.appendChild(col);
+});
+
+function showDetail(ev) {
+  document.getElementById("detail-placeholder").style.display = "none";
+  const dc = document.getElementById("detail-content");
+  dc.style.display = "block";
+  dc.innerHTML = `
+    <div class="detail-card">
+      <div class="detail-head">
+        <span class="detail-tag ${tagClass[ev.type]}">${typeLabel[ev.type]}</span>
+        <span class="detail-name">${ev.title}</span>
+      </div>
+      <div class="detail-time">${ev.time}</div>
+      <div class="detail-row"><b>Who is involved</b>${ev.who}</div>
+      <div class="detail-row"><b>What happens</b>${ev.what}</div>
+      <div class="detail-row"><b>Tools used</b>${ev.tools}</div>
+      <div class="detail-row"><b>Outcome</b>${ev.action}</div>
+    </div>`;
+  document.getElementById("detail-panel").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+</script>
+</body>
+</html>
