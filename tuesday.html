@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>A Tuesday with an Operational Partner — Ferrister Mirembe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg:        #0D1B2A;
+  --navy:      #1B396B;
+  --yellow:    #F5C742;
+  --yellow-d:  #B8940A;
+  --slate:     #2A3F55;
+  --slate-l:   #3A5470;
+  --text:      #E8F4F8;
+  --muted:     #8BA6BE;
+  --border:    #243448;
+  --red:       #FF6B6B;
+  --red-bg:    #2D1A1A;
+  --green:     #4ECDC4;
+  --green-bg:  #1A2D2C;
+  --purple:    #C77DFF;
+  --purple-bg: #251A2D;
+  --orange:    #FF9F43;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 4rem 2rem 3rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.hero h1 span { color: var(--yellow); }
+
+.hero-sub {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* ── TIMEZONE BAR ── */
+.tz-bar {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.tz-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--slate);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.tz-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-tz 2s infinite;
+}
+
+@keyframes pulse-tz {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.tz-city { font-size: 11px; color: var(--muted); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+.tz-time { font-size: 15px; color: var(--text); font-weight: 600; }
+
+/* ── SECTION WRAPPER ── */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.section-desc {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3rem 0;
+}
+
+/* ── BEFORE / AFTER ── */
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ba-col {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.ba-header {
+  padding: 14px 18px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.ba-header.chaos { background: var(--red-bg); color: var(--red); border-bottom: 1px solid #3D2020; }
+.ba-header.order { background: var(--green-bg); color: var(--green); border-bottom: 1px solid #1F3533; }
+
+.ba-body { background: var(--slate); padding: 1rem; display: flex; flex-direction: column; gap: 8px; }
+
+.ba-slot {
+  border-radius: 8px;
+  padding: 10px 12px;
+  position: relative;
+}
+
+.ba-slot.clash {
+  background: var(--red-bg);
+  border: 1px solid #4D2020;
+}
+
+.ba-slot.ok {
+  background: #1A2D2C;
+  border: 1px solid #1F3533;
+}
+
+.ba-slot.buffer {
+  background: var(--purple-bg);
+  border: 1px solid #351A4D;
+}
+
+.ba-slot.deep {
+  background: #1A1F2D;
+  border: 1px solid #243448;
+}
+
+.ba-slot.warn {
+  background: #2D2010;
+  border: 1px solid #4D3510;
+}
+
+.ba-time {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+.ba-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ba-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.clash-tag {
+  display: inline-block;
+  background: var(--red);
+  color: #0D1B2A;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ok-tag {
+  display: inline-block;
+  background: var(--green);
+  color: #0D1B2A;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.buf-tag {
+  display: inline-block;
+  background: var(--purple);
+  color: #0D1B2A;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── DESIGNED DAY TIMELINE ── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 72px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.tl-item {
+  display: flex;
+  gap: 0;
+  position: relative;
+}
+
+.tl-time {
+  width: 72px;
+  flex-shrink: 0;
+  padding: 14px 12px 14px 0;
+  text-align: right;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding-top: 18px;
+}
+
+.tl-dot-wrap {
+  width: 24px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18px;
+}
+
+.tl-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  border: 2px solid var(--bg);
+}
+
+.tl-line {
+  flex: 1;
+  width: 1px;
+  background: var(--border);
+  margin-top: 4px;
+}
+
+.tl-card {
+  flex: 1;
+  margin: 8px 0 8px 12px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+}
+
+.tl-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.tl-card-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tool-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 5px;
+  letter-spacing: 0.04em;
+}
+
+.tag-goog  { background: #1A2850; color: #6EA8FE; border: 1px solid #243468; }
+.tag-fath  { background: #251A2D; color: #C77DFF; border: 1px solid #351A4D; }
+.tag-slack { background: #2D1A10; color: #FF9F43; border: 1px solid #4D3010; }
+.tag-ms    { background: #1A2030; color: #4FC3F7; border: 1px solid #243048; }
+.tag-canva { background: #1A2D2C; color: #4ECDC4; border: 1px solid #1F3533; }
+.tag-cal   { background: #2D2010; color: #FFD93D; border: 1px solid #4D3510; }
+.tag-zoom  { background: #1A2030; color: #00BCD4; border: 1px solid #204050; }
+.tag-me    { background: #1B396B; color: #F5C742; border: 1px solid #2A5090; }
+
+/* type colours for timeline dots + cards */
+.type-meeting  { background: var(--slate); border-color: var(--slate-l); }
+.type-buffer   { background: var(--purple-bg); border-color: #351A4D; }
+.type-deep     { background: #1A1F2D; border-color: var(--navy); }
+.type-client   { background: var(--green-bg); border-color: #1F3533; }
+.type-board    { background: #1A2030; border-color: #243048; }
+.type-ops      { background: #2D2010; border-color: #4D3510; }
+
+.dot-meeting { background: var(--yellow); }
+.dot-buffer  { background: var(--purple); }
+.dot-deep    { background: #4FC3F7; }
+.dot-client  { background: var(--green); }
+.dot-board   { background: #6EA8FE; }
+.dot-ops     { background: var(--orange); }
+
+/* ── OUTCOME CARDS ── */
+.outcomes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.outcome-card {
+  background: var(--slate);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.outcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+}
+
+.oc-yellow::before { background: var(--yellow); }
+.oc-green::before  { background: var(--green); }
+.oc-purple::before { background: var(--purple); }
+.oc-blue::before   { background: #6EA8FE; }
+.oc-orange::before { background: var(--orange); }
+
+.oc-time {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.oc-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.oc-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+.oc-never {
+  font-size: 11px;
+  color: var(--yellow);
+  font-style: italic;
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  background: rgba(245, 199, 66, 0.08);
+  border-radius: 6px;
+  border-left: 2px solid var(--yellow);
+}
+
+/* ── BOTTOM LINE ── */
+.bottom-line {
+  background: var(--navy);
+  border-top: 2px solid var(--yellow);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.bl-main {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.bl-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.bl-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: var(--yellow);
+  background: rgba(245,199,66,0.1);
+  border: 1px solid rgba(245,199,66,0.2);
+  border-radius: 8px;
+  padding: 8px 18px;
+  margin: 0 6px 8px;
+}
+
+.cta-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0D1B2A;
+  background: var(--yellow);
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.cta-link:hover { opacity: 0.85; }
+
+/* ── ATTRIBUTION ── */
+.attribution {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.attribution a { color: var(--yellow); text-decoration: none; }
+
+@media (max-width: 640px) {
+  .before-after { grid-template-columns: 1fr; }
+  .tz-bar { gap: 6px; }
+  .tl-time { width: 52px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────────── -->
+<div class="hero">
+  <p class="eyebrow">A real day, lightly fictionalized</p>
+  <h1>A Tuesday with an<br><span>Operational Partner</span></h1>
+  <p class="hero-sub">Amara is the CEO of a 12-person fintech company headquartered in Johannesburg, with team members in Nairobi, Lagos, and London. Tuesdays are heavy. Here is what one looks like — with and without someone holding the operation.</p>
+
+  <!-- Live timezone bar -->
+  <div class="tz-bar" id="tz-bar">
+    <div class="tz-pill">
+      <div class="tz-dot"></div>
+      <div>
+        <div class="tz-city">Johannesburg</div>
+        <div class="tz-time" id="tz-jhb">--:--</div>
+      </div>
+    </div>
+    <div class="tz-pill">
+      <div class="tz-dot"></div>
+      <div>
+        <div class="tz-city">Nairobi / Lagos</div>
+        <div class="tz-time" id="tz-nbi">--:--</div>
+      </div>
+    </div>
+    <div class="tz-pill">
+      <div class="tz-dot"></div>
+      <div>
+        <div class="tz-city">London</div>
+        <div class="tz-time" id="tz-lon">--:--</div>
+      </div>
+    </div>
+    <div class="tz-pill" style="background:rgba(245,199,66,0.08);border-color:rgba(245,199,66,0.2);">
+      <div class="tz-dot" style="background:var(--yellow);animation:none;"></div>
+      <div>
+        <div class="tz-city" style="color:var(--yellow);">My time (EAT)</div>
+        <div class="tz-time" id="tz-eat" style="color:var(--yellow);">--:--</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BEFORE / AFTER ────────────────────────────────────────────────────────── -->
+<div class="section">
+  <p class="section-label">Section 01</p>
+  <h2 class="section-title">The same Tuesday. Two very different outcomes.</h2>
+  <p class="section-desc">Without an operational partner, Tuesday is reactive. With one, it is designed. The difference is not effort — it is structure.</p>
+
+  <div class="before-after">
+
+    <!-- CHAOS column -->
+    <div class="ba-col">
+      <div class="ba-header chaos">Without an operational partner — chaos</div>
+      <div class="ba-body">
+        <div class="ba-slot clash">
+          <div class="ba-time">8:45 AM</div>
+          <div class="ba-title">Team sync — no agenda</div>
+          <div class="ba-note">Runs 45 minutes over. No one knows what was decided.</div>
+          <span class="clash-tag">No agenda prepared</span>
+        </div>
+        <div class="ba-slot clash">
+          <div class="ba-time">10:00 AM</div>
+          <div class="ba-title">Client call — double booked</div>
+          <div class="ba-note">Amara has a board prep call at the same time. No one flagged it.</div>
+          <span class="clash-tag">Scheduling conflict</span>
+        </div>
+        <div class="ba-slot warn">
+          <div class="ba-time">11:30 AM</div>
+          <div class="ba-title">Board deck still not ready</div>
+          <div class="ba-note">Amara drafts slides herself during what should have been lunch.</div>
+          <span class="clash-tag">Energy depleted</span>
+        </div>
+        <div class="ba-slot clash">
+          <div class="ba-time">1:00 PM</div>
+          <div class="ba-title">Board prep call — no materials sent</div>
+          <div class="ba-note">Board members arrive unprepared. 20 minutes lost on context-setting.</div>
+          <span class="clash-tag">No pre-read circulated</span>
+        </div>
+        <div class="ba-slot warn">
+          <div class="ba-time">2:30 PM</div>
+          <div class="ba-title">Accounts not reconciled</div>
+          <div class="ba-note">Finance queries land at 3pm. Amara handles them herself.</div>
+          <span class="clash-tag">No admin coverage</span>
+        </div>
+        <div class="ba-slot clash">
+          <div class="ba-time">4:00 PM</div>
+          <div class="ba-title">Team still unclear on weekly goals</div>
+          <div class="ba-note">No comms sent. Lagos team has been waiting since morning.</div>
+          <span class="clash-tag">Goals not communicated</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORDER column -->
+    <div class="ba-col">
+      <div class="ba-header order">With an operational partner — designed</div>
+      <div class="ba-body">
+        <div class="ba-slot ok">
+          <div class="ba-time">8:00 AM</div>
+          <div class="ba-title">Weekly goals sent to all three locations</div>
+          <div class="ba-note">Drafted in Amara's voice. Lagos, Nairobi, London — all aligned before the day begins.</div>
+          <span class="ok-tag">Done before Amara opens her laptop</span>
+        </div>
+        <div class="ba-slot ok">
+          <div class="ba-time">9:00 AM</div>
+          <div class="ba-title">Team sync — agenda circulated at 8:45</div>
+          <div class="ba-note">25 minutes. Three decisions made. Minutes in everyone's inbox by 9:30.</div>
+          <span class="ok-tag">On time · documented</span>
+        </div>
+        <div class="ba-slot buffer">
+          <div class="ba-time">10:00 AM</div>
+          <div class="ba-title">Buffer block — protected</div>
+          <div class="ba-note">No meetings. Amara reviews the board deck I prepared. Zero conflicts flagged.</div>
+          <span class="buf-tag">Deep work protected</span>
+        </div>
+        <div class="ba-slot ok">
+          <div class="ba-time">11:00 AM</div>
+          <div class="ba-title">Client call — fully prepped</div>
+          <div class="ba-note">Briefing note sent at 10:45. Fathom captures the call. Follow-up drafted by 12:00.</div>
+          <span class="ok-tag">Prep done · notes captured</span>
+        </div>
+        <div class="ba-slot ok">
+          <div class="ba-time">1:30 PM</div>
+          <div class="ba-title">Board prep call — pre-read sent at 1:00</div>
+          <div class="ba-note">All board members arrive prepared. Call runs 35 minutes. Action items logged immediately.</div>
+          <span class="ok-tag">Materials circulated in advance</span>
+        </div>
+        <div class="ba-slot ok">
+          <div class="ba-time">3:00 PM</div>
+          <div class="ba-title">Accounts reconciled · finance report ready</div>
+          <div class="ba-note">Google Sheets updated. Monthly summary sent to Amara by 3:15 for review.</div>
+          <span class="ok-tag">No action needed from Amara</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider" style="max-width:960px;margin:0 auto 3rem;">
+
+<!-- ── DESIGNED DAY TIMELINE ─────────────────────────────────────────────────── -->
+<div class="section">
+  <p class="section-label">Section 02</p>
+  <h2 class="section-title">The day as designed.</h2>
+  <p class="section-desc">Every block has a purpose. Every tool is chosen deliberately. Every outcome is tracked. Amara leads — everything else is handled.</p>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-time">7:45</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-ops"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-ops">
+        <div class="tl-card-title">Day briefing prepared and sent</div>
+        <div class="tl-card-desc">Amara's day summary — three priorities, five meetings, two decisions needed — lands in her inbox before she starts. Weekly goals drafted in her voice and sent to Johannesburg, Nairobi, Lagos, and London.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-goog">Gmail</span>
+          <span class="tool-tag tag-me">Me — drafted overnight</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">9:00</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-meeting"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-meeting">
+        <div class="tl-card-title">All-team Tuesday sync — 25 min</div>
+        <div class="tl-card-desc">Agenda circulated at 8:45. Johannesburg, Nairobi, Lagos, and London all on Google Meet. I attend, take live notes in Fathom, and route the action items immediately after the call ends. Minutes in everyone's inbox by 9:32.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-zoom">Google Meet</span>
+          <span class="tool-tag tag-fath">Fathom</span>
+          <span class="tool-tag tag-goog">Google Docs</span>
+          <span class="tool-tag tag-slack">Slack</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">9:45</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-buffer"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-buffer">
+        <div class="tl-card-title">Buffer — post-sync admin</div>
+        <div class="tl-card-desc">Action items from the sync are logged, owners assigned, deadlines set. Any follow-up emails drafted and queued. Board deck reviewed against Amara's notes from yesterday — two slides adjusted.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-goog">Google Sheets</span>
+          <span class="tool-tag tag-ms">PowerPoint</span>
+          <span class="tool-tag tag-me">Me</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">10:30</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-deep"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-deep">
+        <div class="tl-card-title">Amara — deep work block (protected)</div>
+        <div class="tl-card-desc">Calendar held. No meetings. No interruptions routed to her. I handle all incoming queries, flag anything urgent, and hold the line. This block belongs to Amara.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-goog">Google Calendar</span>
+          <span class="tool-tag tag-me">Gatekept by me</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">11:00</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-client"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-client">
+        <div class="tl-card-title">Client call — Potential Series A partner</div>
+        <div class="tl-card-desc">Briefing note prepared and sent to Amara at 10:45 — who they are, what they want, what decisions may be needed. I attend, Fathom records. Post-call follow-up email drafted and sent by 12:00 in Amara's voice.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-zoom">Google Meet</span>
+          <span class="tool-tag tag-fath">Fathom</span>
+          <span class="tool-tag tag-goog">Gmail</span>
+          <span class="tool-tag tag-cal">Calendly</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">12:15</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-buffer"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-buffer">
+        <div class="tl-card-title">Lunch block — protected</div>
+        <div class="tl-card-desc">Amara eats. I reconcile the month-end figures in Google Sheets, update the expense tracker, and prepare the finance summary she will review at 3pm. Nothing lands on her plate during this hour.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-goog">Google Sheets</span>
+          <span class="tool-tag tag-me">Me — running in background</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">1:30</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-board"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-board">
+        <div class="tl-card-title">Board prep call — all materials sent at 1:00</div>
+        <div class="tl-card-desc">Board deck finalised and circulated 30 minutes before the call. Speaking notes prepared for each slide. I attend, document every decision and action item in real time. Board members arrive prepared — call runs 38 minutes.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-ms">PowerPoint</span>
+          <span class="tool-tag tag-canva">Canva</span>
+          <span class="tool-tag tag-zoom">Google Meet</span>
+          <span class="tool-tag tag-fath">Fathom</span>
+          <span class="tool-tag tag-goog">Google Docs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">2:30</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-buffer"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-buffer">
+        <div class="tl-card-title">Post-board buffer — follow-through</div>
+        <div class="tl-card-desc">Board minutes drafted. Action items assigned with owners and deadlines. Three follow-up emails sent on Amara's behalf. Slack update sent to the full team with key decisions from the board call.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-goog">Google Docs</span>
+          <span class="tool-tag tag-slack">Slack</span>
+          <span class="tool-tag tag-goog">Gmail</span>
+          <span class="tool-tag tag-me">Me</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">3:15</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-ops"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-ops">
+        <div class="tl-card-title">Finance review — 15 min with Amara</div>
+        <div class="tl-card-desc">Monthly figures reconciled and presented as a one-page summary. Amara reviews, asks two questions, approves. Total time: 15 minutes. Everything else was already done.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-goog">Google Sheets</span>
+          <span class="tool-tag tag-ms">Excel</span>
+          <span class="tool-tag tag-me">Summary prepared by me</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">4:00</div>
+      <div class="tl-dot-wrap"><div class="tl-dot dot-meeting"></div><div class="tl-line"></div></div>
+      <div class="tl-card type-meeting">
+        <div class="tl-card-title">Deadline and project status comms sent</div>
+        <div class="tl-card-desc">Weekly deadline nudges sent to all team members across time zones via Slack. Project status updated in Google Workspace. Tomorrow's priority list prepared and shared with Amara before she closes for the day.</div>
+        <div class="tool-tags">
+          <span class="tool-tag tag-slack">Slack</span>
+          <span class="tool-tag tag-goog">Google Workspace</span>
+          <span class="tool-tag tag-me">Me — end of day wrap</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider" style="max-width:960px;margin:0 auto 3rem;">
+
+<!-- ── OUTCOME CARDS ──────────────────────────────────────────────────────────── -->
+<div class="section">
+  <p class="section-label">Section 03</p>
+  <h2 class="section-title">What got done. What Amara never touched.</h2>
+  <p class="section-desc">Every outcome below happened in the background. Amara stepped in to lead — everything else was already handled.</p>
+
+  <div class="outcomes">
+
+    <div class="outcome-card oc-yellow">
+      <div class="oc-time">7:45 AM · Before the day started</div>
+      <div class="oc-title">Weekly goals landed in four cities</div>
+      <div class="oc-desc">Johannesburg, Nairobi, Lagos, and London all received the same priorities, in Amara's voice, before anyone opened their laptop. No one asked what the focus was this week.</div>
+      <div class="oc-never">Amara never wrote a single line of it.</div>
+      <div class="tool-tags"><span class="tool-tag tag-goog">Gmail</span><span class="tool-tag tag-me">Drafted by me</span></div>
+    </div>
+
+    <div class="outcome-card oc-green">
+      <div class="oc-time">9:32 AM · After the team sync</div>
+      <div class="oc-title">Minutes and action items in everyone's inbox</div>
+      <div class="oc-desc">Fathom captured the full meeting. I reviewed, cleaned, assigned owners, set deadlines, and distributed. Three decisions documented. Zero items lost.</div>
+      <div class="oc-never">Amara only had to run the meeting.</div>
+      <div class="tool-tags"><span class="tool-tag tag-fath">Fathom</span><span class="tool-tag tag-goog">Google Docs</span><span class="tool-tag tag-slack">Slack</span></div>
+    </div>
+
+    <div class="outcome-card oc-purple">
+      <div class="oc-time">10:45 AM · Before the client call</div>
+      <div class="oc-title">Briefing note prepared for the Series A call</div>
+      <div class="oc-desc">Who they are, their portfolio, what they are likely to ask, and what decisions Amara may need to make — one page, in her inbox 15 minutes before the call.</div>
+      <div class="oc-never">Amara walked in fully prepared without researching anything herself.</div>
+      <div class="tool-tags"><span class="tool-tag tag-goog">Google Docs</span><span class="tool-tag tag-me">Research by me</span></div>
+    </div>
+
+    <div class="outcome-card oc-blue">
+      <div class="oc-time">1:00 PM · Before the board call</div>
+      <div class="oc-title">Board deck circulated with speaking notes</div>
+      <div class="oc-desc">Deck finalised, proofread, and sent to all board members 30 minutes before the call. Speaker notes prepared for each slide. Board members arrived with context — call ran 22 minutes under schedule.</div>
+      <div class="oc-never">Amara reviewed it. She did not build it.</div>
+      <div class="tool-tags"><span class="tool-tag tag-ms">PowerPoint</span><span class="tool-tag tag-canva">Canva</span><span class="tool-tag tag-goog">Gmail</span></div>
+    </div>
+
+    <div class="outcome-card oc-orange">
+      <div class="oc-time">3:00 PM · End of finance window</div>
+      <div class="oc-title">Monthly accounts reconciled and summarised</div>
+      <div class="oc-desc">Google Sheets updated, expense tracker current, one-page summary prepared. Amara spent 15 minutes reviewing and approving. Everything else was done during her lunch block.</div>
+      <div class="oc-never">Amara made the decisions. She did not do the preparation.</div>
+      <div class="tool-tags"><span class="tool-tag tag-goog">Google Sheets</span><span class="tool-tag tag-ms">Excel</span></div>
+    </div>
+
+    <div class="outcome-card oc-green">
+      <div class="oc-time">4:00 PM · Close of business</div>
+      <div class="oc-title">Deadline nudges sent. Tomorrow already set up.</div>
+      <div class="oc-desc">Every team member across all four locations received their deadline reminder. Project statuses updated. Tomorrow's priority list prepared and in Amara's inbox before she closed her laptop.</div>
+      <div class="oc-never">Amara ended her day with nothing chasing her.</div>
+      <div class="tool-tags"><span class="tool-tag tag-slack">Slack</span><span class="tool-tag tag-goog">Google Workspace</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── BOTTOM LINE ─────────────────────────────────────────────────────────── -->
+<div class="bottom-line">
+  <div class="bl-main">Amara stepped in to lead. Everything else was already handled.</div>
+  <div class="bl-sub">Six outcomes. Four cities. One Tuesday. Total time Amara spent on administration: 28 minutes.</div>
+  <div style="margin-bottom:1rem;">
+    <span class="bl-stat">⏱ 10 meetings and tasks completed</span>
+    <span class="bl-stat">🌍 4 time zones coordinated</span>
+    <span class="bl-stat">🛠 8 tools deployed</span>
+    <span class="bl-stat">✓ 0 things fell through</span>
+  </div>
+  <a href="mailto:pa.mferrister@gmail.com?subject=Operational Partner — Let's talk" class="cta-link">Work with me ↗</a>
+</div>
+
+<div class="attribution">
+  Built by <a href="https://mferrister.github.io">Ferrister Mirembe</a> · Virtual Assistant & Operations Support · Masaka, Uganda · <a href="mailto:pa.mferrister@gmail.com">pa.mferrister@gmail.com</a>
+</div>
+
+<script>
+function formatTime(date, tz) {
+  return date.toLocaleTimeString('en-GB', {
+    timeZone: tz,
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  });
+}
+
+function updateClocks() {
+  const now = new Date();
+  document.getElementById('tz-jhb').textContent = formatTime(now, 'Africa/Johannesburg');
+  document.getElementById('tz-nbi').textContent = formatTime(now, 'Africa/Nairobi');
+  document.getElementById('tz-lon').textContent = formatTime(now, 'Europe/London');
+  document.getElementById('tz-eat').textContent = formatTime(now, 'Africa/Nairobi');
+}
+
+updateClocks();
+setInterval(updateClocks, 10000);
+</script>
+</body>
+</html>
