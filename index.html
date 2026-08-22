@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mirembe Ferrister-Administrative Assistant &
-Operations / Strategic Support</title>
+<title>Mirembe Ferrister — Administrative Assistant</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -155,6 +154,7 @@ Operations / Strategic Support</title>
   .rate-item { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
   .rate-item-label { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
   .rate-item-val { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
   .cta-btn {
     display: inline-flex; align-items: center; gap: 8px;
     font-family: 'DM Sans', sans-serif;
@@ -166,6 +166,12 @@ Operations / Strategic Support</title>
     transition: background 0.2s, transform 0.15s;
   }
   .cta-btn:hover { background: var(--navy-dark); transform: translateY(-1px); }
+  .cta-btn.outline {
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+  }
+  .cta-btn.outline:hover { background: var(--navy-light); transform: translateY(-1px); }
 
   /* PAYMENTS */
   .pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -267,22 +273,6 @@ Operations / Strategic Support</title>
     .rate-items { grid-template-columns: 1fr; }
     .pay-grid { grid-template-columns: 1fr; }
   }
-
-  /* ACCORDION */
-  .accordion { border: 0.5px solid var(--border); border-radius: var(--border-radius-md, 10px); overflow: hidden; }
-  .accordion-btn {
-    width: 100%; display: flex; align-items: center; justify-content: space-between;
-    padding: 13px 16px; background: var(--navy); color: #fff;
-    font-family: var(--font-sans, Arial); font-size: 13px; font-weight: 500;
-    border: none; cursor: pointer; text-align: left; gap: 10px;
-    transition: background 0.15s;
-  }
-  .accordion-btn:hover { background: var(--navy-dark); }
-  .accordion-btn.open { background: var(--navy-dark); }
-  .acc-arrow { font-size: 18px; transition: transform 0.2s; flex-shrink: 0; }
-  .accordion-btn.open .acc-arrow { transform: rotate(180deg); }
-  .accordion-body { display: none; padding: 14px 16px; background: var(--cream, #fafaf7); border-top: 1px solid var(--border); }
-  .accordion-body.open { display: block; }
 </style>
 </head>
 <body>
@@ -300,9 +290,9 @@ Operations / Strategic Support</title>
   <div class="container">
 
     <div class="hero">
-      <span class="hero-tag">Available for remote Admin work · All time zones</span>
-      <h1>Administrative Assistant &amp;<br><em>operations / strategic support</em></h1>
-      <p class="hero-sub">I'm Mirembe Ferrister, here to help founders, startups, and organisations think clearly, move faster, and get meaningful work done. Remotely, reliably, and with genuine care for the work.</p>
+      <span class="hero-tag">Available for remote work · All time zones</span>
+      <h1>Administrative Assistant<br><em>Remote and On-Site</em></h1>
+      <p class="hero-sub">I'm Ferrister Mirembe — building toward remote administrative roles for both local and global teams. Executive support, financial systems, operations coordination, and the infrastructure that keeps distributed teams running.</p>
       <div class="hero-tz">
         <span class="live-dot"></span>
         <span>Based in Masaka, Uganda · Open to work worldwide</span>
@@ -312,12 +302,9 @@ Operations / Strategic Support</title>
     <div class="section">
       <div class="section-label">About me</div>
       <div class="about-text">
-        <p>Ferrister Mirembe is an Administrative, Operations and Strategic professional building toward remote administrative roles for both local and global teams. 
-</p>
+        <p>Ferrister Mirembe is an Administrative Assistant building toward remote administrative roles for both local and global teams.</p>
         <p>Currently manages the full administrative operation at Wajabu Junior School, calendars, records, correspondence, admissions, and stakeholder communication, while simultaneously providing remote virtual assistant and operations support to clients across Uganda, the African region, and internationally.</p>
-
-        <p>Core scope of work: executive-level calendar and schedule management, financial model design and reporting, cross-functional stakeholder coordination, documentation systems, and meeting and event logistics. Recent work includes designing and building a linked financial model (income statement, cash flow, balance sheet) to support executive-level financial decision-making at Wajabu.
-</p>
+        <p>Core scope of work: executive-level calendar and schedule management, financial model design and reporting, cross-functional stakeholder coordination, documentation systems, and meeting and event logistics. Recent work includes designing and building a linked financial model (income statement, cash flow, balance sheet) to support executive-level financial decision-making at Wajabu.</p>
         <p>Also runs CMD Sport Africa, a blog covering sport, business, and culture across the continent, and is currently completing bookkeeping training to strengthen financial reporting capability.</p>
         <p style="color:var(--ink);font-weight:500;">Take a look around; my experience, skills, and the work I've been doing are all here. I hope they give you a clear enough picture to want to reach out. I'd love to be part of what helps your team move.</p>
       </div>
@@ -326,10 +313,12 @@ Operations / Strategic Support</title>
     <div class="section">
       <div class="section-label">What I bring</div>
       <div class="skills-grid">
-        <div class="skill-pill"><div class="sp-label">Executive &amp; administrative support</div><div class="sp-desc">Calendar management, scheduling, meeting coordination, inbox organisation, administrative support, and reporting</div></div>
-        <div class="skill-pill"><div class="sp-label">Project coordination &amp; organisational support</div><div class="sp-desc">Project coordination, deadline tracking, workflow organisation, accountability support, and execution management</div></div>
-        <div class="skill-pill"><div class="sp-label">Stakeholder communication</div><div class="sp-desc">Stakeholder follow-up, scheduling, project updates, and communication management</div></div>
-        <div class="skill-pill"><div class="sp-label">CRM &amp; tools</div><div class="sp-desc">HubSpot, Notion, Asana, Google Workspace, Zoho, Figma, Canva, CapCut, Trello, Meta Business Suite, Microsoft Teams</div></div>
+        <div class="skill-pill"><div class="sp-label">Executive and administrative support</div><div class="sp-desc">Senior leadership support, complex calendar management, executive correspondence, board meeting coordination, briefing preparation, and stakeholder communications across time zones</div></div>
+        <div class="skill-pill"><div class="sp-label">Financial reporting and systems</div><div class="sp-desc">Financial model design and build covering income statement, cashflow, payroll, and invoices. Multi-currency tracking for distributed teams. Monthly reporting for executive decision-making</div></div>
+        <div class="skill-pill"><div class="sp-label">Operations coordination and project support</div><div class="sp-desc">Cross-functional project coordination, deadline tracking, stakeholder update management, records systems, and distributed team operations across multiple locations and time zones</div></div>
+        <div class="skill-pill"><div class="sp-label">Systems design and business infrastructure</div><div class="sp-desc">Business Operating System design and build: Excel financial layer, Google Drive document architecture, and Notion operations database. Built for organisations running complex, distributed operations</div></div>
+        <div class="skill-pill"><div class="sp-label">Meeting documentation and coordination</div><div class="sp-desc">Agenda preparation, minute-taking, action item tracking, and follow-through. Every decision documented, every commitment tracked to completion</div></div>
+        <div class="skill-pill"><div class="sp-label">Tools and platforms</div><div class="sp-desc">Microsoft Office 365, Google Workspace, Notion, Trello, Fathom, Slack, Calendly, Canva, QuickBooks (in progress), Odoo, HubSpot (in progress)</div></div>
       </div>
     </div>
 
@@ -338,22 +327,25 @@ Operations / Strategic Support</title>
       <div class="exp-list">
         <div class="exp-item">
           <div class="exp-line"><div class="exp-dot"></div><div class="exp-tail"></div></div>
-          <div><div class="exp-role">Administrative Assistant &amp; operations support</div><div class="exp-org">Wajabu Junior School, Masaka City, Uganda</div><div class="exp-yr">Operations, document management, staff coordination</div></div>
+          <div><div class="exp-role">Sports &amp; systems analyst</div><div class="exp-org">Independent — published research on African sports economies and creative industries</div><div class="exp-yr">Ongoing</div></div>
         </div>
         <div class="exp-item">
           <div class="exp-line"><div class="exp-dot"></div><div class="exp-tail"></div></div>
-          <div><div class="exp-role">Remote Administrative &amp; & Communications Support</div><div class="exp-org">My Shepherd Ministries</div><div class="exp-yr">Managed social media, email correspondence, Team coordination, drafted and designed newsletters using canva, reporting</div></div>
+          <div><div class="exp-role">Administrative Assistant</div><div class="exp-org">Wajabu Junior School — Masaka City, Uganda</div><div class="exp-yr">Operations, document management, staff coordination</div></div>
         </div>
         <div class="exp-item">
           <div class="exp-line"><div class="exp-dot"></div><div class="exp-tail"></div></div>
-          <div><div class="exp-role">Strategic Communications & Development Support</div><div class="exp-org">Savannah Women Health Uganda</div><div class="exp-yr">Team Coordination, Produced institutional records and reports used to make funding and partnerships decisions, Project planning & coordination, Drafted and designed newsletters, maintained structured programme documentation and tracked deadlines across multiple worstreams</div></div>
+          <div><div class="exp-role">Remote Administrative & & Communications Support</div><div class="exp-org">My shepherd house ministries</div><div class="exp-yr">Research, managed social media, email correspondence, designed newsletters using canva, stakeholder coordination, reporting</div></div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-line"><div class="exp-dot"></div><div class="exp-tail"></div></div>
+          <div><div class="exp-role">Strategic Communications & Development Support</div><div class="exp-org">Savannah Women - Remote</div><div class="exp-yr">Team Coordination, Produced institutional records and reports used to make funding and partnerships decisions, Project planning & coordination, Drafted and designed newsletters, maintained structured programme documentation and tracked deadlines across multiple worstreams</div></div>
         </div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-label">Rate card</div>
-
       <div class="rate-card">
         <div class="rate-title">Let's find the right fit</div>
         <div class="rate-desc">I work on hourly, project, and monthly retainer arrangements depending on the scope and your team's needs. Every engagement starts with a conversation about what you actually need.</div>
@@ -363,190 +355,14 @@ Operations / Strategic Support</title>
           <div class="rate-item"><div class="rate-item-label">Time zones</div><div class="rate-item-val">All — fully flexible</div></div>
           <div class="rate-item"><div class="rate-item-label">Start date</div><div class="rate-item-val">Available now</div></div>
         </div>
-        <a class="cta-btn" href="mailto:pa.mferrister@gmail.com">✉ Get in touch</a>
-      </div>
-
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:1.25rem;margin-bottom:1rem;">
-        <p style="font-size:14px;color:var(--muted);line-height:1.7;">Full pricing by region — download or expand below.</p>
-        <a href="Ferrister_Mirembe_RateCard.pdf" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding:8px 18px;border-radius:25px;background:var(--navy);color:#fff;text-decoration:none;white-space:nowrap;">&#8595; Download rate card PDF</a>
-      </div>
-
-      <div style="background:var(--yellow-light);border:1px solid var(--yellow);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;">
-        <div style="font-size:11px;font-weight:600;color:var(--navy);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.05em;">Rate disclaimer</div>
-        <p style="font-size:13px;color:var(--ink);line-height:1.7;margin-bottom:0.5rem;">All rates are standard starting points and subject to adjustment based on workload and complexity, client budget, rush or overtime work (charged at 1.5x for same or next-day turnaround, 1.25x beyond agreed weekly hours), tools and data costs covered by the client, and scheduled retainer reviews at the 2-month check-in and contract renewal.</p>
-        <p style="font-size:12px;color:var(--muted);font-style:italic;">Rates valid as of August 2026. Clients on active retainers receive 30 days written notice of any rate change.</p>
-      </div>
-
-      <!-- COLLAPSIBLE PRICING -->
-      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem;">
-
-        <!-- UGANDA -->
-        <div class="accordion">
-          <button class="accordion-btn" onclick="toggleAccordion(this)">
-            <span>Uganda — Local organisations</span>
-            <span class="acc-arrow">&#8964;</span>
-          </button>
-          <div class="accordion-body">
-            <p style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:0.75rem;">For Ugandan companies, NGOs, schools, and community organisations.</p>
-            <div style="overflow-x:auto;">
-              <table style="width:100%;border-collapse:collapse;font-size:12px;">
-                <tr style="background:var(--navy);color:#fff;">
-                  <th style="padding:8px 10px;text-align:left;">Package</th>
-                  <th style="padding:8px 10px;text-align:left;">What's included</th>
-                  <th style="padding:8px 10px;text-align:center;">Monthly retainer</th>
-                  <th style="padding:8px 10px;text-align:center;">Hourly</th>
-                </tr>
-                <tr style="background:var(--yellow-light);">
-                  <td style="padding:8px 10px;font-weight:600;color:var(--navy);border:1px solid var(--border);">Starter</td>
-                  <td style="padding:8px 10px;border:1px solid var(--border);">Inbox management, scheduling, data entry, basic correspondence, record keeping</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">UGX 450,000–550,000</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">UGX 15,000</td>
-                </tr>
-                <tr style="background:#fff;">
-                  <td style="padding:8px 10px;font-weight:600;color:var(--navy);border:1px solid var(--border);">Core</td>
-                  <td style="padding:8px 10px;border:1px solid var(--border);">Full administrative support, calendar management, stakeholder correspondence, documentation systems, deadline tracking</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">UGX 550,000–700,000</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">UGX 22,000</td>
-                </tr>
-                <tr style="background:var(--yellow-light);">
-                  <td style="padding:8px 10px;font-weight:600;color:var(--navy);border:1px solid var(--border);">Operations Support</td>
-                  <td style="padding:8px 10px;border:1px solid var(--border);">Workflow design and coordination, records infrastructure, multi-stakeholder reporting, CRM and tool management</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">UGX 700,000+ (by scope)</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">UGX 28,000</td>
-                </tr>
-              </table>
-            </div>
-            <p style="font-size:11px;color:var(--muted);margin-top:0.6rem;">Part-time: 4 hrs/day, Mon–Fri (20 hrs/week)  |  Full-time: 8 hrs/day, Mon–Fri (40 hrs/week)</p>
-          </div>
+        <div class="cta-row">
+          <a class="cta-btn" href="mailto:pa.mferrister@gmail.com">✉ Get in touch</a>
+          <a class="cta-btn outline" href="Ferrister_Mirembe_RateCard_" download>↓ Download rate card</a>
         </div>
-
-        <!-- AFRICAN REGIONAL -->
-        <div class="accordion">
-          <button class="accordion-btn" onclick="toggleAccordion(this)">
-            <span>African regional — Kenya, Nigeria, South Africa, Rwanda, Ghana &amp; beyond</span>
-            <span class="acc-arrow">&#8964;</span>
-          </button>
-          <div class="accordion-body">
-            <p style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:0.75rem;">For African organisations, regional NGOs, startups, and schools outside Uganda.</p>
-            <div style="overflow-x:auto;">
-              <table style="width:100%;border-collapse:collapse;font-size:12px;">
-                <tr style="background:var(--navy);color:#fff;">
-                  <th style="padding:8px 10px;text-align:left;">Package</th>
-                  <th style="padding:8px 10px;text-align:left;">What's included</th>
-                  <th style="padding:8px 10px;text-align:center;">Monthly retainer</th>
-                  <th style="padding:8px 10px;text-align:center;">Hourly</th>
-                </tr>
-                <tr style="background:var(--yellow-light);">
-                  <td style="padding:8px 10px;font-weight:600;color:var(--navy);border:1px solid var(--border);">Starter</td>
-                  <td style="padding:8px 10px;border:1px solid var(--border);">Inbox management, scheduling, data entry, basic correspondence, record keeping</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$80–$120 / mo</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$6 / hr</td>
-                </tr>
-                <tr style="background:#fff;">
-                  <td style="padding:8px 10px;font-weight:600;color:var(--navy);border:1px solid var(--border);">Core</td>
-                  <td style="padding:8px 10px;border:1px solid var(--border);">Full administrative support, calendar management, stakeholder correspondence, documentation systems, deadline tracking</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$150–$250 / mo</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$10 / hr</td>
-                </tr>
-                <tr style="background:var(--yellow-light);">
-                  <td style="padding:8px 10px;font-weight:600;color:var(--navy);border:1px solid var(--border);">Operations Support</td>
-                  <td style="padding:8px 10px;border:1px solid var(--border);">Workflow design and coordination, records infrastructure, multi-stakeholder reporting, CRM and tool management</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$280–$400 / mo</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$14 / hr</td>
-                </tr>
-              </table>
-            </div>
-            <p style="font-size:11px;color:var(--muted);margin-top:0.6rem;">Part-time: up to 20 hrs/week  |  Full-time: up to 40 hrs/week  |  Time zones: EAT, WAT, SAST</p>
-          </div>
-        </div>
-
-        <!-- INTERNATIONAL -->
-        <div class="accordion">
-          <button class="accordion-btn" onclick="toggleAccordion(this)">
-            <span>International — US, UK, EU &amp; global organisations</span>
-            <span class="acc-arrow">&#8964;</span>
-          </button>
-          <div class="accordion-body">
-            <p style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:0.75rem;">For international companies, global NGOs, schools, and remote-first teams.</p>
-            <div style="overflow-x:auto;">
-              <table style="width:100%;border-collapse:collapse;font-size:12px;">
-                <tr style="background:var(--navy);color:#fff;">
-                  <th style="padding:8px 10px;text-align:left;">Package</th>
-                  <th style="padding:8px 10px;text-align:left;">What's included</th>
-                  <th style="padding:8px 10px;text-align:center;">Monthly retainer</th>
-                  <th style="padding:8px 10px;text-align:center;">Hourly</th>
-                </tr>
-                <tr style="background:var(--yellow-light);">
-                  <td style="padding:8px 10px;font-weight:600;color:var(--navy);border:1px solid var(--border);">Starter</td>
-                  <td style="padding:8px 10px;border:1px solid var(--border);">Inbox management, scheduling, data entry, basic correspondence, record keeping</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$200–$350 / mo</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$10 / hr</td>
-                </tr>
-                <tr style="background:#fff;">
-                  <td style="padding:8px 10px;font-weight:600;color:var(--navy);border:1px solid var(--border);">Core</td>
-                  <td style="padding:8px 10px;border:1px solid var(--border);">Full executive and administrative support, calendar management, stakeholder correspondence, documentation systems, CRM management</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$400–$650 / mo</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$18 / hr</td>
-                </tr>
-                <tr style="background:var(--yellow-light);">
-                  <td style="padding:8px 10px;font-weight:600;color:var(--navy);border:1px solid var(--border);">Operations Support</td>
-                  <td style="padding:8px 10px;border:1px solid var(--border);">Workflow design and coordination, records infrastructure, multi-stakeholder reporting, CRM and tool management, process management</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$700–$1,000 / mo</td>
-                  <td style="padding:8px 10px;text-align:center;border:1px solid var(--border);">$25 / hr</td>
-                </tr>
-              </table>
-            </div>
-            <p style="font-size:11px;color:var(--muted);margin-top:0.6rem;">Part-time: up to 20 hrs/week  |  Full-time: up to 40 hrs/week  |  Time zones: EST, GMT, CET</p>
-          </div>
-        </div>
-
-        <!-- HOW ENGAGEMENTS GROW -->
-        <div class="accordion">
-          <button class="accordion-btn" onclick="toggleAccordion(this)">
-            <span>How engagements grow over time</span>
-            <span class="acc-arrow">&#8964;</span>
-          </button>
-          <div class="accordion-body">
-            <p style="font-size:13px;color:var(--muted);margin-bottom:0.75rem;">All engagements follow a structured progression. This protects both parties and ensures the working relationship is right before longer commitments are made.</p>
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <div style="display:flex;gap:10px;background:var(--yellow-light);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
-                <div style="font-size:12px;font-weight:600;color:var(--navy);width:110px;flex-shrink:0;">Discovery call</div>
-                <div style="font-size:11px;color:var(--yellow-dark);width:90px;flex-shrink:0;font-weight:500;">Before we start</div>
-                <div style="font-size:12px;color:var(--muted);">Free 30-minute call to discuss your needs, scope, and fit. No commitment required.</div>
-              </div>
-              <div style="display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
-                <div style="font-size:12px;font-weight:600;color:var(--navy);width:110px;flex-shrink:0;">Trial period</div>
-                <div style="font-size:11px;color:var(--yellow-dark);width:90px;flex-shrink:0;font-weight:500;">Month 1–2</div>
-                <div style="font-size:12px;color:var(--muted);">We work together on an hourly or monthly basis. No retainer yet — this is a mutual assessment period.</div>
-              </div>
-              <div style="display:flex;gap:10px;background:var(--yellow-light);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
-                <div style="font-size:12px;font-weight:600;color:var(--navy);width:110px;flex-shrink:0;">2-month review</div>
-                <div style="font-size:11px;color:var(--yellow-dark);width:90px;flex-shrink:0;font-weight:500;">End of Month 2</div>
-                <div style="font-size:12px;color:var(--muted);">Structured check-in covering fit, feedback, workload, and scope. Rates and hours may be adjusted.</div>
-              </div>
-              <div style="display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
-                <div style="font-size:12px;font-weight:600;color:var(--navy);width:110px;flex-shrink:0;">Retainer offer</div>
-                <div style="font-size:11px;color:var(--yellow-dark);width:90px;flex-shrink:0;font-weight:500;">Month 6</div>
-                <div style="font-size:12px;color:var(--muted);">A 6-month retainer, paid monthly, with total value and breakdown agreed in writing before it begins.</div>
-              </div>
-              <div style="display:flex;gap:10px;background:var(--yellow-light);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
-                <div style="font-size:12px;font-weight:600;color:var(--navy);width:110px;flex-shrink:0;">Annual contract</div>
-                <div style="font-size:11px;color:var(--yellow-dark);width:90px;flex-shrink:0;font-weight:500;">Month 12+</div>
-                <div style="font-size:12px;color:var(--muted);">Formal annual contract with negotiated terms, priority availability, and agreed rate locks.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="background:var(--navy);border-radius:14px;padding:1.5rem;text-align:center;">
-        <a class="cta-btn" href="mailto:pa.mferrister@gmail.com" style="background:var(--yellow);color:var(--navy-dark);">✉ Get in touch</a>
-        <p style="font-size:12px;color:#fff;margin-top:0.75rem;opacity:0.85;">Or download the full rate card: <a href="Ferrister_Mirembe_RateCard(1).pdf" target="_blank" style="color:var(--yellow);text-decoration:none;font-weight:500;">PDF ↗</a></p>
       </div>
     </div>
 
-        <div class="section">
+    <div class="section">
       <div class="section-label">How to pay me</div>
       <p style="font-size:13px;color:var(--muted);margin-bottom:1rem;">Payment details are shared privately after job negotiation and on request only.</p>
       <p style="font-size:13px;color:var(--muted);margin-bottom:1rem;line-height:1.7;">Payment details are shared after job negotiation and on request only. The options below are available depending on your location and preference.</p>
@@ -562,7 +378,7 @@ Operations / Strategic Support</title>
       <div style="display:flex;flex-direction:column;gap:20px;">
 
         <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative;">
-          <div style="font-size:36px;color:var(--yellow);font-size:40px;line-height:1;margin-bottom:0.75rem;">"</div>
+          <div style="font-size:40px;color:var(--yellow);line-height:1;margin-bottom:0.75rem;">"</div>
           <p style="font-size:15px;color:var(--ink);line-height:1.8;font-style:italic;margin-bottom:1rem;">Ferrister joined us as Secretary and Administrative Assistant and immediately brought a level of organisation we had not had before. Within her first month she had designed a full term activity calendar and set up an inventory tracking system that we still use today. She manages our correspondence, handles parent communication, coordinates scheduling, and keeps our records accurate without needing to be reminded. She is reliable, discreet, and genuinely invested in the work. I would recommend her without hesitation for any administrative or coordination role.</p>
           <div style="display:flex;align-items:center;gap:10px;">
             <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--navy-dark);">AM</div>
@@ -574,7 +390,7 @@ Operations / Strategic Support</title>
         </div>
 
         <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;">
-          <div style="font-size:36px;color:var(--yellow);font-size:40px;line-height:1;margin-bottom:0.75rem;">"</div>
+          <div style="font-size:40px;color:var(--yellow);line-height:1;margin-bottom:0.75rem;">"</div>
           <p style="font-size:15px;color:var(--ink);line-height:1.8;font-style:italic;margin-bottom:1rem;">I worked with Ferrister across two organisations and she consistently delivered work that went beyond what was asked. She handled our social media content, designed materials in Canva, drafted newsletters, programme documents, and director portfolios entirely independently. Everything she produced was professional, well-structured, and ready to share externally without revision. What stood out most was that she understood what we were trying to communicate and translated that into materials that genuinely represented us well. She is creative, thorough, and trustworthy with sensitive information. I would not hesitate to recommend her.</p>
           <div style="display:flex;align-items:center;gap:10px;">
             <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--navy-dark);">BN</div>
@@ -588,15 +404,15 @@ Operations / Strategic Support</title>
       </div>
     </div>
 
-        <div class="section">
- 
- 
+    <div class="section">
+
+
     <div class="section">
       <div class="section-label">Work samples</div>
       <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem;">A selection of real work showing how I think and what I can do. More being added regularly.</p>
- 
+
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:2rem;">
- 
+
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Inbox organisation · Gmail</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px;">Email Label and Folder System</div>
@@ -604,14 +420,14 @@ Operations / Strategic Support</title>
           <img src="email_inbox_sample.png" alt="Gmail inbox organisation" style="width:100%;border-radius:6px;border:1px solid var(--border);margin-bottom:6px;">
           <span style="font-size:11px;color:var(--muted);font-style:italic;">Personal inbox shown for demonstration.</span>
         </div>
- 
+
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Newsletter design and writing</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">SWHA 3-Month Impact Newsletter</div>
           <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Savannah Women's Health Africa — Issue 2, July 2025. Layout, writing, and production.</div>
           <a href="SWHA_Newsletter_Ferrister_Mirembe.pdf" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Download PDF ↗</a>
         </div>
- 
+
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Social media design</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">My Shepherd Ministry</div>
@@ -625,28 +441,28 @@ Operations / Strategic Support</title>
             <a href="https://www.instagram.com/p/DLO0xtJIRLV/?igsh=ZGJ0djR1NWk2emJ4" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Post 5 ↗</a>
           </div>
         </div>
- 
+
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Research and writing</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">Published on Substack</div>
           <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Long-form research and analysis on African sport and business</div>
           <a href="https://cmdsportafrica.substack.com" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Visit Substack ↗</a>
         </div>
- 
+
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Calendar management · Interactive demo</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">Executive Calendar System</div>
           <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">How I approach calendar management, meeting coordination, and action item tracking for a busy executive. Live interactive demo.</div>
           <a href="calendar.html" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">View live demo ↗</a>
         </div>
- 
+
       </div>
- 
+
       <div class="section-label" style="margin-top:1rem;">Case studies</div>
       <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem;">Deeper demonstrations of how I think about systems, operations, and the work behind the work.</p>
- 
+
       <div style="display:flex;flex-direction:column;gap:14px;">
- 
+
         <div style="background:var(--navy-light);border:1px solid var(--navy-mid);border-radius:14px;padding:1.5rem;">
           <div style="font-size:11px;font-weight:500;color:var(--navy);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Operations · Multi-timezone EA support</div>
           <div style="font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;">A Tuesday with an Operational Partner</div>
@@ -662,7 +478,7 @@ Operations / Strategic Support</title>
           </div>
           <a href="tuesday.html" target="_blank" style="display:inline-block;font-size:13px;font-weight:500;color:var(--navy-dark);background:var(--yellow);padding:8px 20px;border-radius:20px;text-decoration:none;">View case study ↗</a>
         </div>
- 
+
         <div style="background:var(--yellow-light);border:1px solid var(--yellow);border-radius:14px;padding:1.5rem;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Financial Systems · Excel</div>
           <div style="font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;">School Financial Management System</div>
@@ -687,11 +503,11 @@ Operations / Strategic Support</title>
             <span style="font-size:11px;color:var(--muted);font-style:italic;">Consultation fee: UGX 100,000</span>
           </div>
         </div>
- 
+
       </div>
     </div>
 
-    <div class="section">
+        <div class="section">
       <div class="section-label">Contact</div>
       <div class="contact-list">
         <div class="contact-row"><span class="contact-icon">✉</span><span class="contact-label">Email</span><span class="contact-val">pa.mferrister@gmail.com</span></div>
@@ -726,7 +542,7 @@ Operations / Strategic Support</title>
         </div>
         <div class="passion-block">
           <h3>Sport as a new obsession</h3>
-          <p>Once I started watching I couldn't stop. I follow Liverpool in the Premier League, the Celtics in the NBA, the Las Vegas Aces and Atlanta Dream in the WNBA, F1 (Ferrari — obviously), MotoGP where I follow Fabio Quartararo and Marc Márquez, and tennis. In tennis my favourites are Sabalenka, Serena Williams, and Naomi Osaka — three very different players but each one fascinating to watch for different reasons. I also think African sport is one of the most underleveraged stories of this decade, and I want to be part of how it gets told.</p>
+          <p>Once I started watching I couldn't stop. I follow Liverpool in the Premier League, the Celtics in the NBA, WNBA, F1 (Ferrari — obviously), MotoGP, and tennis. In tennis my favourites are Sabalenka, Serena Williams, and Naomi Osaka — three very different players but each one fascinating to watch for different reasons. I also think African sport is one of the most underleveraged stories of this decade, and I want to be part of how it gets told.</p>
         </div>
       </div>
     </div>
@@ -736,16 +552,16 @@ Operations / Strategic Support</title>
       <div class="sports-grid">
         <div class="sport-card"><div class="sport-emoji">⚽</div><div class="sport-type">Football</div><div class="sport-name">Premier League</div><div class="sport-team">❤️ Liverpool FC</div></div>
         <div class="sport-card"><div class="sport-emoji">☘️</div><div class="sport-type">Basketball</div><div class="sport-name">NBA</div><div class="sport-team">Boston Celtics</div></div>
-        <div class="sport-card"><div class="sport-emoji">🏀</div><div class="sport-type">Women's hoops</div><div class="sport-name">WNBA</div><div class="sport-team">Las Vegas Aces · Atlanta Dream</div></div>
+        <div class="sport-card"><div class="sport-emoji">🏀</div><div class="sport-type">Women's hoops</div><div class="sport-name">WNBA</div><div class="sport-team">Go Las Vegas Aces & Atlanta Dream</div></div>
         <div class="sport-card"><div class="sport-emoji">🏎️</div><div class="sport-type">Formula 1</div><div class="sport-name">F1 Grand Prix</div><div class="sport-team">🔴 Scuderia Ferrari</div></div>
-        <div class="sport-card"><div class="sport-emoji">🏍️</div><div class="sport-type">Motorsport</div><div class="sport-name">MotoGP</div><div class="sport-team">Quartararo · Márquez</div></div>
+        <div class="sport-card"><div class="sport-emoji">🏍️</div><div class="sport-type">Motorsport</div><div class="sport-name">MotoGP</div><div class="sport-team">Fabio Quartararo & Marc Márquez</div></div>
         <div class="sport-card"><div class="sport-emoji">🎾</div><div class="sport-type">Tennis</div><div class="sport-name">Grand Slams</div><div class="sport-team">Sabalenka · Serena · Osaka</div></div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-label">Find me here</div>
-      <div class="social-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="social-grid">
         <a class="social-card" href="https://www.linkedin.com/in/ferrister-mirembe-2b4201278/" target="_blank"><div class="social-icon">in</div><div class="sc-name">LinkedIn</div><div class="sc-handle">Professional updates</div></a>
         <a class="social-card" href="https://instagram.com/mferrister" target="_blank"><div class="social-icon">◎</div><div class="sc-name">Instagram</div><div class="sc-handle">@mferrister</div></a>
         <a class="social-card" href="https://cmdsportafrica.substack.com" target="_blank"><div class="social-icon">✍</div><div class="sc-name">CMD Sport Africa</div><div class="sc-handle">Substack · sport &amp; business</div></a>
@@ -811,7 +627,7 @@ Operations / Strategic Support</title>
 </div>
 
 <footer>
-  <span>Ferrister Mirembe · Kampala, Uganda</span>
+  <span>Ferrister Mirembe · Masaka, Uganda</span>
   <span>Open to remote work worldwide</span>
 </footer>
 
@@ -824,21 +640,5 @@ function switchPage(id, btn) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
-
-<script>
-function toggleAccordion(btn) {
-  const body = btn.nextElementSibling;
-  const isOpen = body.classList.contains('open');
-  // close all
-  document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
-  document.querySelectorAll('.accordion-btn').forEach(b => b.classList.remove('open'));
-  // open clicked if it was closed
-  if (!isOpen) {
-    body.classList.add('open');
-    btn.classList.add('open');
-  }
-}
-</script>
-
 </body>
 </html>
