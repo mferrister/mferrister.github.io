@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How Amara's Company Runs — Ferrister Mirembe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg:        #0D1B2A;
+  --navy:      #1B396B;
+  --yellow:    #F5C742;
+  --yellow-d:  #B8940A;
+  --slate:     #2A3F55;
+  --slate-l:   #3A5470;
+  --text:      #E8F4F8;
+  --muted:     #8BA6BE;
+  --border:    #243448;
+  --red:       #FF6B6B;
+  --red-bg:    #2D1A1A;
+  --green:     #4ECDC4;
+  --green-bg:  #1A2D2C;
+  --purple:    #C77DFF;
+  --purple-bg: #251A2D;
+  --orange:    #FF9F43;
+  --orange-bg: #2D1F0A;
+  --blue:      #6EA8FE;
+  --blue-bg:   #1A2030;
+
+  --excel-c:   #1E6B43;
+  --excel-bg:  #0F2A1C;
+  --excel-bd:  #1A4030;
+  --drive-c:   #4285F4;
+  --drive-bg:  #0F1E35;
+  --drive-bd:  #1A2D55;
+  --notion-c:  #E8E8E8;
+  --notion-bg: #1A1A2E;
+  --notion-bd: #2A2A45;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 4rem 2rem 3rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 5vw, 50px);
+  font-weight: 700; line-height: 1.1;
+  color: var(--text); margin-bottom: 1rem;
+}
+
+.hero h1 span { color: var(--yellow); }
+
+.hero-sub {
+  font-size: 16px; color: var(--muted);
+  max-width: 560px; line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.hero-meta {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.meta-pill {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 600;
+  padding: 5px 14px; border-radius: 20px;
+  background: var(--slate); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: 0.04em;
+}
+
+/* ── SECTION ── */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700; color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.section-desc {
+  font-size: 14px; color: var(--muted);
+  max-width: 520px; line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 2rem 3rem;
+  max-width: 920px;
+}
+
+/* ── BEFORE STATE ── */
+.before-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.before-card {
+  background: var(--red-bg);
+  border: 1px solid #3D2020;
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.before-icon {
+  font-size: 22px; margin-bottom: 8px;
+}
+
+.before-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--red); margin-bottom: 6px;
+}
+
+.before-desc {
+  font-size: 13px; color: var(--muted); line-height: 1.6;
+}
+
+/* ── THREE TOOL CARDS ── */
+.tool-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.tool-card {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.tool-card.excel-card  { border-color: var(--excel-bd); }
+.tool-card.drive-card  { border-color: var(--drive-bd); }
+.tool-card.notion-card { border-color: var(--notion-bd); }
+
+.tool-card.open.excel-card  { border-color: var(--excel-c); }
+.tool-card.open.drive-card  { border-color: var(--drive-c); }
+.tool-card.open.notion-card { border-color: var(--notion-c); }
+
+.tool-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.excel-card  .tool-header { background: var(--excel-bg); }
+.drive-card  .tool-header { background: var(--drive-bg); }
+.notion-card .tool-header { background: var(--notion-bg); }
+
+.tool-header:hover { opacity: 0.88; }
+
+.tool-left { display: flex; align-items: center; gap: 14px; }
+
+.tool-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+
+.excel-icon  { background: rgba(30,107,67,0.3); }
+.drive-icon  { background: rgba(66,133,244,0.2); }
+.notion-icon { background: rgba(232,232,232,0.1); }
+
+.tool-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px; font-weight: 700;
+}
+
+.excel-card  .tool-name { color: #4ECDA0; }
+.drive-card  .tool-name { color: #6EA8FE; }
+.notion-card .tool-name { color: #E8E8E8; }
+
+.tool-role {
+  font-size: 12px; color: var(--muted);
+  margin-top: 2px;
+}
+
+.tool-toggle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 6px;
+}
+
+.toggle-arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+  font-size: 14px;
+}
+
+.tool-card.open .toggle-arrow { transform: rotate(180deg); }
+
+.tool-body {
+  display: none;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.tool-card.open .tool-body { display: block; }
+
+.tool-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.what-lives {
+  margin-bottom: 1rem;
+}
+
+.what-lives-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 10px;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.item-card {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.excel-card  .item-card { background: rgba(30,107,67,0.15); border-color: var(--excel-bd); }
+.drive-card  .item-card { background: rgba(66,133,244,0.1); border-color: var(--drive-bd); }
+.notion-card .item-card { background: rgba(232,232,232,0.05); border-color: var(--notion-bd); }
+
+.item-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px; font-weight: 600; margin-bottom: 3px;
+}
+
+.excel-card  .item-name { color: #4ECDA0; }
+.drive-card  .item-name { color: #6EA8FE; }
+.notion-card .item-name { color: #C8C8C8; }
+
+.item-desc {
+  font-size: 11px; color: var(--muted); line-height: 1.5;
+}
+
+.screenshot-placeholder {
+  margin-top: 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 12px; color: var(--muted);
+  font-style: italic;
+}
+
+.rule-box {
+  margin-top: 1rem;
+  background: var(--slate);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px; color: var(--muted);
+  border-left: 3px solid var(--yellow);
+}
+
+.rule-box strong {
+  color: var(--yellow);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ── WORKFLOW STEPPER ── */
+.workflow-tabs {
+  display: flex; gap: 8px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.workflow-tab {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px; font-weight: 600;
+  padding: 8px 18px; border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--slate);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.workflow-tab.active {
+  background: var(--yellow);
+  color: var(--bg);
+  border-color: var(--yellow);
+}
+
+.workflow-panel { display: none; }
+.workflow-panel.active { display: block; }
+
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.flow-steps::before {
+  content: '';
+  position: absolute;
+  left: 18px; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.flow-step {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.flow-dot {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 700;
+  border: 2px solid var(--bg);
+  z-index: 1;
+}
+
+.dot-excel  { background: var(--excel-c); color: white; }
+.dot-drive  { background: var(--drive-c); color: white; }
+.dot-notion { background: #888; color: white; }
+.dot-you    { background: var(--yellow); color: var(--bg); }
+
+.flow-content {
+  flex: 1;
+  padding-top: 6px;
+}
+
+.flow-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--text); margin-bottom: 4px;
+}
+
+.flow-desc {
+  font-size: 13px; color: var(--muted);
+  line-height: 1.6; margin-bottom: 6px;
+}
+
+.flow-tags {
+  display: flex; flex-wrap: wrap; gap: 5px;
+}
+
+.flow-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 600;
+  padding: 2px 8px; border-radius: 4px;
+}
+
+.tag-excel  { background: var(--excel-bg);  color: #4ECDA0; border: 1px solid var(--excel-bd); }
+.tag-drive  { background: var(--drive-bg);  color: #6EA8FE; border: 1px solid var(--drive-bd); }
+.tag-notion { background: var(--notion-bg); color: #C8C8C8; border: 1px solid var(--notion-bd); }
+.tag-you    { background: var(--navy);      color: var(--yellow); border: 1px solid #2A4A8A; }
+.tag-fathom { background: var(--purple-bg); color: var(--purple); border: 1px solid #351A4D; }
+
+/* ── OUTCOMES ── */
+.outcomes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.outcome-card {
+  background: var(--slate);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.outcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+}
+
+.oc-yellow::before { background: var(--yellow); }
+.oc-green::before  { background: var(--green); }
+.oc-blue::before   { background: var(--blue); }
+.oc-purple::before { background: var(--purple); }
+.oc-orange::before { background: var(--orange); }
+
+.oc-time {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 6px;
+}
+
+.oc-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--text); margin-bottom: 6px;
+}
+
+.oc-desc {
+  font-size: 12px; color: var(--muted);
+  line-height: 1.65; margin-bottom: 10px;
+}
+
+.oc-never {
+  font-size: 11px; color: var(--yellow);
+  font-style: italic; padding: 6px 10px;
+  background: rgba(245,199,66,0.08);
+  border-radius: 6px;
+  border-left: 2px solid var(--yellow);
+  margin-bottom: 10px;
+}
+
+/* ── BOTTOM LINE ── */
+.bottom-line {
+  background: var(--navy);
+  border-top: 2px solid var(--yellow);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.bl-main {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 700; color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.bl-sub {
+  font-size: 14px; color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.bl-stat {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; color: var(--yellow);
+  background: rgba(245,199,66,0.1);
+  border: 1px solid rgba(245,199,66,0.2);
+  border-radius: 8px; padding: 8px 18px;
+  margin: 0 6px 8px;
+}
+
+.cta-link {
+  display: inline-block; margin-top: 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--bg); background: var(--yellow);
+  padding: 10px 24px; border-radius: 8px;
+  text-decoration: none; transition: opacity 0.2s;
+}
+
+.cta-link:hover { opacity: 0.85; }
+
+.attribution {
+  text-align: center; padding: 1.5rem;
+  font-size: 12px; color: var(--muted);
+}
+
+.attribution a { color: var(--yellow); text-decoration: none; }
+
+@media (max-width: 600px) {
+  .before-grid { grid-template-columns: 1fr; }
+  .item-grid   { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <p class="eyebrow">Business Operating System — Amara's Company</p>
+  <h1>How <span>Amara's company</span><br>runs.</h1>
+  <p class="hero-sub">Three tools. Not the most complex. Not the most expensive. The ones that actually work. This is the operational infrastructure built for a 12-person fintech company running across Johannesburg, Nairobi, Lagos, London, and Masaka.</p>
+  <div class="hero-meta">
+    <span class="meta-pill">Excel — numbers</span>
+    <span class="meta-pill">Google Drive — documents</span>
+    <span class="meta-pill">Notion — operations</span>
+    <span class="meta-pill">5 locations · 3 currencies</span>
+    <span class="meta-pill">Built by Ferrister Mirembe</span>
+  </div>
+</div>
+
+<!-- ── SECTION 1: THE PROBLEM ── -->
+<div class="section">
+  <p class="section-label">Section 01</p>
+  <h2 class="section-title">What happens without a system.</h2>
+  <p class="section-desc">Before the Business OS, Amara's company ran on memory, WhatsApp threads, and scattered files. Here is what that actually looked like.</p>
+
+  <div class="before-grid">
+    <div class="before-card">
+      <div class="before-icon">💸</div>
+      <div class="before-title">No financial visibility</div>
+      <div class="before-desc">Revenue and expenses tracked in someone's head or a single disorganised spreadsheet. No one could answer "how much did we make this month" with confidence.</div>
+    </div>
+    <div class="before-card">
+      <div class="before-icon">📂</div>
+      <div class="before-title">Documents everywhere</div>
+      <div class="before-desc">Contracts in email threads. Meeting notes in WhatsApp. Proposals in someone's Downloads folder. Finding anything took longer than creating it again.</div>
+    </div>
+    <div class="before-card">
+      <div class="before-icon">🌍</div>
+      <div class="before-title">Five locations, no coordination</div>
+      <div class="before-desc">Johannesburg, Nairobi, Lagos, London, and Masaka all working in silos. No shared visibility on projects, deadlines, or who was doing what.</div>
+    </div>
+    <div class="before-card">
+      <div class="before-icon">🔁</div>
+      <div class="before-title">Everything went through Amara</div>
+      <div class="before-desc">Every question, every decision, every request landed on her desk. Not because she needed to answer them — because there was no system to route them anywhere else.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ── SECTION 2: THE THREE TOOLS ── -->
+<div class="section">
+  <p class="section-label">Section 02</p>
+  <h2 class="section-title">The three tools. Click each one.</h2>
+  <p class="section-desc">Each tool has a specific job. They do not overlap. They connect. Click any card to see what lives there and why.</p>
+
+  <div class="tool-cards">
+
+    <!-- EXCEL -->
+    <div class="tool-card excel-card" id="card-excel">
+      <div class="tool-header" onclick="toggleCard('excel')">
+        <div class="tool-left">
+          <div class="tool-icon excel-icon">📊</div>
+          <div>
+            <div class="tool-name">Excel</div>
+            <div class="tool-role">The numbers layer — every financial figure lives here</div>
+          </div>
+        </div>
+        <div class="tool-toggle">Explore <span class="toggle-arrow">▼</span></div>
+      </div>
+      <div class="tool-body">
+        <div class="tool-divider"></div>
+        <div class="what-lives">
+          <div class="what-lives-title">What lives here</div>
+          <div class="item-grid">
+            <div class="item-card">
+              <div class="item-name">Income Statement</div>
+              <div class="item-desc">Monthly revenue from five clients in five currencies, direct costs, operating expenses, net profit and margin</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">Cashflow Tracker</div>
+              <div class="item-desc">Actual cash movement — what came in, what went out, opening and closing balance every month</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">Payroll — All Locations</div>
+              <div class="item-desc">11 team members across Johannesburg, Masaka, Nairobi, Lagos, and London. Local currency converted to ZAR automatically</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">Invoice Tracker</div>
+              <div class="item-desc">Every invoice, its due date, payment status. Overdue flags automatically. Paid, due soon, or outstanding at a glance</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">Currency Rates</div>
+              <div class="item-desc">ZAR, UGX, KES, NGN, GBP. Update once a month — every formula across the workbook updates automatically</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">Year Summary</div>
+              <div class="item-desc">12-month P&L building across the year. Revenue, costs, gross profit, expenses, net profit — all months in one view</div>
+            </div>
+          </div>
+        </div>
+        <div class="screenshot-placeholder">📸 Screenshots of the financial model — coming soon</div>
+        <div class="rule-box"><strong>The rule:</strong> Numbers live here and nowhere else. No financial decisions are made from memory, WhatsApp, or email. If it is not in Excel, it has not happened.</div>
+      </div>
+    </div>
+
+    <!-- GOOGLE DRIVE -->
+    <div class="tool-card drive-card" id="card-drive">
+      <div class="tool-header" onclick="toggleCard('drive')">
+        <div class="tool-left">
+          <div class="tool-icon drive-icon">📁</div>
+          <div>
+            <div class="tool-name">Google Drive</div>
+            <div class="tool-role">The documents layer — every file has one home</div>
+          </div>
+        </div>
+        <div class="tool-toggle">Explore <span class="toggle-arrow">▼</span></div>
+      </div>
+      <div class="tool-body">
+        <div class="tool-divider"></div>
+        <div class="what-lives">
+          <div class="what-lives-title">What lives here</div>
+          <div class="item-grid">
+            <div class="item-card">
+              <div class="item-name">01 — Finance</div>
+              <div class="item-desc">Invoices sent and paid, monthly reports, payroll records, tax and compliance documents</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">02 — Clients</div>
+              <div class="item-desc">One folder per client: contracts, deliverables, meeting notes, invoices. Everything in one place, always findable</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">03 — Team</div>
+              <div class="item-desc">Contracts, offer letters, onboarding packs, policies, performance records — confidential and organised</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">04 — Projects</div>
+              <div class="item-desc">Active and completed projects. Each folder: brief, deliverables, meeting notes. Nothing gets lost when a project closes</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">05 — Board and Leadership</div>
+              <div class="item-desc">Board meeting folders by date: agenda, deck, and minutes. The board always has what they need before they ask</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">06 — Operations</div>
+              <div class="item-desc">Email and proposal templates, subscription records, NDAs, supplier contracts. The infrastructure of how the company runs</div>
+            </div>
+          </div>
+        </div>
+        <div class="screenshot-placeholder">📸 Google Drive folder structure — coming soon</div>
+        <div class="rule-box"><strong>The rule:</strong> Every document lives in one place. Share the link, never the attachment. No five versions of the same file floating in email threads.</div>
+      </div>
+    </div>
+
+    <!-- NOTION -->
+    <div class="tool-card notion-card" id="card-notion">
+      <div class="tool-header" onclick="toggleCard('notion')">
+        <div class="tool-left">
+          <div class="tool-icon notion-icon">🗂</div>
+          <div>
+            <div class="tool-name">Notion</div>
+            <div class="tool-role">The operations layer — where work is tracked and coordinated</div>
+          </div>
+        </div>
+        <div class="tool-toggle">Explore <span class="toggle-arrow">▼</span></div>
+      </div>
+      <div class="tool-body">
+        <div class="tool-divider"></div>
+        <div class="what-lives">
+          <div class="what-lives-title">What lives here</div>
+          <div class="item-grid">
+            <div class="item-card">
+              <div class="item-name">Command Centre</div>
+              <div class="item-desc">Amara's home page. Tasks this week, projects in flight, upcoming deadlines, recent meeting notes — everything in one scroll</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">Projects Database</div>
+              <div class="item-desc">Every project: client, status, owner, due date, Drive folder link. Board view, table view, active-only view</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">Tasks Database</div>
+              <div class="item-desc">Every task assigned to someone with a deadline. Filtered by person, by project, by due date. Nothing falls through</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">Client CRM</div>
+              <div class="item-desc">Every client: contact, contract dates, retainer, Drive folder, projects, renewal date. Renewals flagged 60 days out</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">Meeting Notes</div>
+              <div class="item-desc">Every meeting documented: agenda, attendees, decisions, action items, Fathom recording link. Searchable forever</div>
+            </div>
+            <div class="item-card">
+              <div class="item-name">SOPs and Templates</div>
+              <div class="item-desc">How to raise an invoice, onboard a client, run a team sync, prepare a board deck — written once, used every time</div>
+            </div>
+          </div>
+        </div>
+        <div class="screenshot-placeholder">📸 Notion command centre and databases — coming soon as Notion is built</div>
+        <div class="rule-box"><strong>The rule:</strong> Work is tracked here. Not in someone's head, not in WhatsApp, not in a to-do list on a sticky note. If it has no Notion entry, it has no owner and no deadline.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ── SECTION 3: WORKFLOWS ── -->
+<div class="section">
+  <p class="section-label">Section 03</p>
+  <h2 class="section-title">How information moves between the three tools.</h2>
+  <p class="section-desc">The tools only work because they are connected. Here is how three common moments in Amara's company flow across all three.</p>
+
+  <div class="workflow-tabs">
+    <div class="workflow-tab active" onclick="switchFlow('client')">New client signed</div>
+    <div class="workflow-tab" onclick="switchFlow('sync')">Weekly team sync</div>
+    <div class="workflow-tab" onclick="switchFlow('month')">Month-end close</div>
+  </div>
+
+  <!-- New client -->
+  <div class="workflow-panel active" id="flow-client">
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-dot dot-you">F</div>
+        <div class="flow-content">
+          <div class="flow-title">Contract signed and filed</div>
+          <div class="flow-desc">The signed contract is uploaded to the client's folder in Google Drive immediately. Named correctly: YYYY-MM-DD — Client Name — Contract — v1.</div>
+          <div class="flow-tags"><span class="flow-tag tag-drive">Google Drive</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot dot-notion">N</div>
+        <div class="flow-content">
+          <div class="flow-title">Client and project created in Notion</div>
+          <div class="flow-desc">New Client record added to the CRM. New Project record created and linked to the client. Tasks assigned with owners and deadlines. Drive folder linked directly in the Notion entry.</div>
+          <div class="flow-tags"><span class="flow-tag tag-notion">Notion</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot dot-excel">E</div>
+        <div class="flow-content">
+          <div class="flow-title">Invoice raised and cashflow updated</div>
+          <div class="flow-desc">First invoice entered in the Invoice Tracker. Expected revenue added to the Cashflow sheet. Income Statement updated with the new client retainer.</div>
+          <div class="flow-tags"><span class="flow-tag tag-excel">Excel</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot dot-you">F</div>
+        <div class="flow-content">
+          <div class="flow-title">Welcome email and onboarding sent</div>
+          <div class="flow-desc">Onboarding email sent from the templates folder in Drive. Calendly link shared for first project meeting. Amara briefed in one paragraph on what has been set up.</div>
+          <div class="flow-tags"><span class="flow-tag tag-drive">Drive templates</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Weekly sync -->
+  <div class="workflow-panel" id="flow-sync">
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-dot dot-you">F</div>
+        <div class="flow-content">
+          <div class="flow-title">Agenda prepared from Notion task board</div>
+          <div class="flow-desc">I pull the week's overdue tasks, upcoming deadlines, and open blockers from Notion. Agenda drafted in Google Docs and circulated to all team members 24 hours before the call.</div>
+          <div class="flow-tags"><span class="flow-tag tag-notion">Notion</span><span class="flow-tag tag-drive">Google Docs</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot dot-you">F</div>
+        <div class="flow-content">
+          <div class="flow-title">Meeting runs — Fathom captures everything</div>
+          <div class="flow-desc">I attend, take live notes. Fathom records and generates a transcript. I review, clean, and extract the decisions and action items while the meeting is still fresh.</div>
+          <div class="flow-tags"><span class="flow-tag tag-fathom">Fathom</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot dot-notion">N</div>
+        <div class="flow-content">
+          <div class="flow-title">Minutes filed, action items assigned in Notion</div>
+          <div class="flow-desc">Meeting Notes entry created in Notion with decisions, action items, and Fathom link. Every action item gets an owner and a deadline. Minutes PDF filed in the relevant Drive folder.</div>
+          <div class="flow-tags"><span class="flow-tag tag-notion">Notion</span><span class="flow-tag tag-drive">Google Drive</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot dot-you">F</div>
+        <div class="flow-content">
+          <div class="flow-title">Deadline nudges sent to all five locations</div>
+          <div class="flow-desc">Each team member receives a Slack message with their specific action items and deadlines from the sync. No one has to read the full minutes to know what they owe.</div>
+          <div class="flow-tags"><span class="flow-tag tag-you">Me — Slack</span><span class="flow-tag tag-notion">Notion source</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Month end -->
+  <div class="workflow-panel" id="flow-month">
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-dot dot-excel">E</div>
+        <div class="flow-content">
+          <div class="flow-title">Income Statement and Cashflow closed</div>
+          <div class="flow-desc">All revenue and expenses entered for the month. Cashflow reconciled — every payment in and out accounted for. Payroll confirmed across all five locations and currencies.</div>
+          <div class="flow-tags"><span class="flow-tag tag-excel">Excel</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot dot-you">F</div>
+        <div class="flow-content">
+          <div class="flow-title">Monthly report prepared for Amara</div>
+          <div class="flow-desc">One-page executive summary: total revenue, total expenses, net profit, collection rate, outstanding invoices, and one line on anything that needs her attention. She reviews in 15 minutes.</div>
+          <div class="flow-tags"><span class="flow-tag tag-excel">Excel</span><span class="flow-tag tag-drive">Google Drive</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot dot-drive">D</div>
+        <div class="flow-content">
+          <div class="flow-title">Monthly report filed in Drive</div>
+          <div class="flow-desc">Report saved to Finance / Monthly Reports / 2026 / with the correct naming convention. Amara and the finance lead have access. Everything is findable in under 30 seconds.</div>
+          <div class="flow-tags"><span class="flow-tag tag-drive">Google Drive</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot dot-notion">N</div>
+        <div class="flow-content">
+          <div class="flow-title">Month-end checklist completed in Notion</div>
+          <div class="flow-desc">The month-end SOP in Notion is checked off line by line. Every step confirmed. Nothing skipped. Next month's checklist auto-populates from the template.</div>
+          <div class="flow-tags"><span class="flow-tag tag-notion">Notion SOP</span><span class="flow-tag tag-you">Me</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ── SECTION 4: OUTCOMES ── -->
+<div class="section">
+  <p class="section-label">Section 04</p>
+  <h2 class="section-title">What this makes possible.</h2>
+  <p class="section-desc">Six things that are now true about how Amara's company runs that were not true before.</p>
+
+  <div class="outcomes">
+    <div class="outcome-card oc-yellow">
+      <div class="oc-time">Every month</div>
+      <div class="oc-title">Amara knows her numbers</div>
+      <div class="oc-desc">Revenue, expenses, net profit, and outstanding invoices — visible on one page, in ZAR, updated monthly. Financial decisions are made from data, not memory.</div>
+      <div class="oc-never">She reviews it. She did not build it.</div>
+      <div class="flow-tags"><span class="flow-tag tag-excel">Excel</span></div>
+    </div>
+
+    <div class="outcome-card oc-green">
+      <div class="oc-time">Every meeting</div>
+      <div class="oc-title">Decisions are documented and tracked</div>
+      <div class="oc-desc">Every meeting produces a Notion record with decisions, action items, owners, and deadlines. Nothing is lost between the conversation ending and the follow-through beginning.</div>
+      <div class="oc-never">Amara leads the meeting. Everything else is handled.</div>
+      <div class="flow-tags"><span class="flow-tag tag-notion">Notion</span><span class="flow-tag tag-fathom">Fathom</span></div>
+    </div>
+
+    <div class="outcome-card oc-blue">
+      <div class="oc-time">Every new client</div>
+      <div class="oc-title">Onboarding takes 30 minutes not 3 days</div>
+      <div class="oc-desc">Contract filed, client record created, project set up, invoice raised, welcome email sent. Done before Amara finishes her first call with the new client.</div>
+      <div class="oc-never">Amara signed the client. The system handled the rest.</div>
+      <div class="flow-tags"><span class="flow-tag tag-drive">Drive</span><span class="flow-tag tag-notion">Notion</span><span class="flow-tag tag-excel">Excel</span></div>
+    </div>
+
+    <div class="outcome-card oc-purple">
+      <div class="oc-time">Across five locations</div>
+      <div class="oc-title">The team knows what they owe and when</div>
+      <div class="oc-desc">Johannesburg, Nairobi, Lagos, London, and Masaka — every team member gets their specific deadlines and action items after every sync. No one has to ask what they should be doing.</div>
+      <div class="oc-never">Coordination happens without Amara coordinating it.</div>
+      <div class="flow-tags"><span class="flow-tag tag-notion">Notion</span></div>
+    </div>
+
+    <div class="outcome-card oc-orange">
+      <div class="oc-time">Every quarter</div>
+      <div class="oc-title">Board meetings run on time and on substance</div>
+      <div class="oc-desc">Board deck built from Excel numbers. Pre-read circulated 30 minutes before. Minutes documented and filed. Action items assigned before the call ends. Board members arrive prepared.</div>
+      <div class="oc-never">Amara presents. The preparation was done.</div>
+      <div class="flow-tags"><span class="flow-tag tag-excel">Excel</span><span class="flow-tag tag-drive">Drive</span><span class="flow-tag tag-notion">Notion</span></div>
+    </div>
+
+    <div class="outcome-card oc-green">
+      <div class="oc-time">Every day</div>
+      <div class="oc-title">Nothing falls through</div>
+      <div class="oc-desc">Overdue invoices are flagged. Expiring contracts surface 60 days out. Blocked tasks are visible. Deadlines are tracked. Amara sees the problems before they become crises.</div>
+      <div class="oc-never">The system surfaces issues. Amara decides what to do about them.</div>
+      <div class="flow-tags"><span class="flow-tag tag-excel">Excel</span><span class="flow-tag tag-notion">Notion</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BOTTOM LINE ── -->
+<div class="bottom-line">
+  <div class="bl-main">Amara runs the company. The system runs everything else.</div>
+  <div class="bl-sub">Three tools. Not the most complex. The ones that actually work.</div>
+  <div style="margin-bottom:1rem;">
+    <span class="bl-stat">📊 Excel — all financial data</span>
+    <span class="bl-stat">📁 Drive — all documents</span>
+    <span class="bl-stat">🗂 Notion — all operations</span>
+    <span class="bl-stat">🌍 5 locations · 0 dropped balls</span>
+  </div>
+  <a href="mailto:pa.mferrister@gmail.com?subject=Business OS — Let's talk" class="cta-link">Build this for your team ↗</a>
+</div>
+
+<div class="attribution">
+  Built by <a href="https://mferrister.github.io">Ferrister Mirembe</a> · Administrative Assistant · Masaka, Uganda · <a href="mailto:pa.mferrister@gmail.com">pa.mferrister@gmail.com</a>
+</div>
+
+<script>
+function toggleCard(name) {
+  const card = document.getElementById('card-' + name);
+  card.classList.toggle('open');
+}
+
+function switchFlow(name) {
+  document.querySelectorAll('.workflow-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.workflow-panel').forEach(p => p.classList.remove('active'));
+  document.querySelector(`[onclick="switchFlow('${name}')"]`).classList.add('active');
+  document.getElementById('flow-' + name).classList.add('active');
+}
+</script>
+</body>
+</html>
