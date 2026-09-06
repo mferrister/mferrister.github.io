@@ -8,20 +8,20 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #1B3A6B;
-    --navy-light: #EEF2F9;
-    --navy-mid: #B8C8E0;
-    --navy-dark: #0F2347;
-    --sage: #FEFAE8;
-    --cream: #FAFAF7;
-    --ink: #1A1A2E;
-    --muted: #5C6478;
-    --border: #DDE3EE;
-    --green: #1D9E75;
-    --green-light: #E1F5EE;
-    --yellow: #F5C842;
-    --yellow-light: #FEFAE8;
-    --yellow-dark: #B8940A;
+    --navy: #222222;
+    --navy-light: #F5F5F5;
+    --navy-mid: #CCCCCC;
+    --navy-dark: #111111;
+    --sage: #F9F9F9;
+    --cream: #FFFFFF;
+    --ink: #111111;
+    --muted: #555555;
+    --border: #DDDDDD;
+    --green: #222222;
+    --green-light: #F0F0F0;
+    --yellow: #222222;
+    --yellow-light: #F5F5F5;
+    --yellow-dark: #111111;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -36,7 +36,7 @@
   /* NAV */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(250,250,247,0.95);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     padding: 0 clamp(1rem, 5vw, 3rem);
@@ -71,7 +71,7 @@
   .hero-tag {
     display: inline-block;
     font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
-    color: var(--navy-dark); background: var(--yellow);
+    color: #ffffff; background: var(--yellow);
     padding: 4px 14px; border-radius: 20px;
     margin-bottom: 1.25rem; text-transform: uppercase;
   }
@@ -94,14 +94,14 @@
   .live-dot {
     width: 8px; height: 8px; border-radius: 50%;
     background: var(--green);
-    box-shadow: 0 0 0 0 rgba(29,158,117,0.4);
+    box-shadow: 0 0 0 0 rgba(34,34,34,0.2);
     animation: pulse 2s infinite;
     display: inline-block; flex-shrink: 0;
   }
   @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(29,158,117,0.4); }
-    70% { box-shadow: 0 0 0 7px rgba(29,158,117,0); }
-    100% { box-shadow: 0 0 0 0 rgba(29,158,117,0); }
+    0% { box-shadow: 0 0 0 0 rgba(34,34,34,0.2); }
+    70% { box-shadow: 0 0 0 7px rgba(34,34,34,0); }
+    100% { box-shadow: 0 0 0 0 rgba(34,34,34,0); }
   }
 
   /* SECTIONS */
@@ -331,11 +331,11 @@
         </div>
         <div class="exp-item">
           <div class="exp-line"><div class="exp-dot"></div><div class="exp-tail"></div></div>
-          <div><div class="exp-role">Remote Administrative & & Communications Support</div><div class="exp-org">My shepherd house ministries</div><div class="exp-yr">Research, managed social media, email correspondence, designed newsletters using canva, stakeholder coordination, reporting</div></div>
+          <div><div class="exp-role">Remote Administrative &amp; Communications Support</div><div class="exp-org">My shepherd house ministries</div><div class="exp-yr">Research, managed social media, email correspondence, designed newsletters using canva, stakeholder coordination, reporting</div></div>
         </div>
         <div class="exp-item">
           <div class="exp-line"><div class="exp-dot"></div><div class="exp-tail"></div></div>
-          <div><div class="exp-role">Strategic Communications & Development Support</div><div class="exp-org">Savannah Women - Remote</div><div class="exp-yr">Team Coordination, Produced institutional records and reports used to make funding and partnerships decisions, Project planning & coordination, Drafted and designed newsletters, maintained structured programme documentation and tracked deadlines across multiple worstreams</div></div>
+          <div><div class="exp-role">Strategic Communications &amp; Development Support</div><div class="exp-org">Savannah Women - Remote</div><div class="exp-yr">Team Coordination, Produced institutional records and reports used to make funding and partnerships decisions, Project planning &amp; coordination, Drafted and designed newsletters, maintained structured programme documentation and tracked deadlines across multiple worstreams</div></div>
         </div>
       </div>
     </div>
@@ -353,7 +353,7 @@
         </div>
         <div class="cta-row">
           <a class="cta-btn" href="mailto:pa.mferrister@gmail.com">✉ Get in touch</a>
-          <a class="cta-btn outline" href="Ferrister_Mirembe_RateCard_.pdf"download>↓ Download rate card</a>
+          <a class="cta-btn outline" href="Ferrister_Mirembe_RateCard_.pdf" download>↓ Download rate card</a>
         </div>
       </div>
     </div>
@@ -372,7 +372,6 @@
     <div class="section">
       <div class="section-label">What people say</div>
       <div style="display:flex;flex-direction:column;gap:20px;">
-
         <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative;">
           <div style="font-size:40px;color:var(--yellow);line-height:1;margin-bottom:0.75rem;">"</div>
           <p style="font-size:15px;color:var(--ink);line-height:1.8;font-style:italic;margin-bottom:1rem;">Ferrister joined us as Secretary and Administrative Assistant and immediately brought a level of organisation we had not had before. Within her first month she had designed a full term activity calendar and set up an inventory tracking system that we still use today. She manages our correspondence, handles parent communication, coordinates scheduling, and keeps our records accurate without needing to be reminded. She is reliable, discreet, and genuinely invested in the work. I would recommend her without hesitation for any administrative or coordination role.</p>
@@ -380,11 +379,10 @@
             <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--navy-dark);">AM</div>
             <div>
               <div style="font-size:13px;font-weight:500;color:var(--ink);">Abraham Mulungi</div>
-              <div style="font-size:12px;color:var(--muted);">Bursar & Co-Director, Wajabu Christian Junior Primary School</div>
+              <div style="font-size:12px;color:var(--muted);">Bursar &amp; Co-Director, Wajabu Christian Junior Primary School</div>
             </div>
           </div>
         </div>
-
         <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;">
           <div style="font-size:40px;color:var(--yellow);line-height:1;margin-bottom:0.75rem;">"</div>
           <p style="font-size:15px;color:var(--ink);line-height:1.8;font-style:italic;margin-bottom:1rem;">I worked with Ferrister across two organisations and she consistently delivered work that went beyond what was asked. She handled our social media content, designed materials in Canva, drafted newsletters, programme documents, and director portfolios entirely independently. Everything she produced was professional, well-structured, and ready to share externally without revision. What stood out most was that she understood what we were trying to communicate and translated that into materials that genuinely represented us well. She is creative, thorough, and trustworthy with sensitive information. I would not hesitate to recommend her.</p>
@@ -392,23 +390,18 @@
             <div style="width:36px;height:36px;border-radius:50%;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--navy-dark);">BN</div>
             <div>
               <div style="font-size:13px;font-weight:500;color:var(--ink);">Bernah Namutebi</div>
-              <div style="font-size:12px;color:var(--muted);">Director, My Shepherd Ministries & Savannah Women's Health</div>
+              <div style="font-size:12px;color:var(--muted);">Director, My Shepherd Ministries &amp; Savannah Women's Health</div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-
-    <div class="section">
-
 
     <div class="section">
       <div class="section-label">Work samples</div>
       <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem;">A selection of real work showing how I think and what I can do. More being added regularly.</p>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:2rem;">
-
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Inbox organisation · Gmail</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px;">Email Label and Folder System</div>
@@ -416,14 +409,12 @@
           <img src="email_inbox_sample.png" alt="Gmail inbox organisation" style="width:100%;border-radius:6px;border:1px solid var(--border);margin-bottom:6px;">
           <span style="font-size:11px;color:var(--muted);font-style:italic;">Personal inbox shown for demonstration.</span>
         </div>
-
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Newsletter design and writing</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">SWHA 3-Month Impact Newsletter</div>
           <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Savannah Women's Health Africa — Issue 2, July 2025. Layout, writing, and production.</div>
           <a href="SWHA_Newsletter_Ferrister_Mirembe.pdf" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Download PDF ↗</a>
         </div>
-
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Social media design</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">My Shepherd Ministry</div>
@@ -437,28 +428,24 @@
             <a href="https://www.instagram.com/p/DLO0xtJIRLV/?igsh=ZGJ0djR1NWk2emJ4" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Post 5 ↗</a>
           </div>
         </div>
-
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Research and writing</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">Published on Substack</div>
           <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Long-form research and analysis on African sport and business</div>
           <a href="https://cmdsportafrica.substack.com" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">Visit Substack ↗</a>
         </div>
-
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;">
           <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Calendar management · Interactive demo</div>
           <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;">Executive Calendar System</div>
           <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">How I approach calendar management, meeting coordination, and action item tracking for a busy executive. Live interactive demo.</div>
           <a href="calendar.html" target="_blank" style="font-size:12px;color:var(--yellow-dark);text-decoration:none;">View live demo ↗</a>
         </div>
-
       </div>
 
       <div class="section-label" style="margin-top:1rem;">Case studies</div>
       <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem;">Deeper demonstrations of how I think about systems, operations, and the work behind the work.</p>
 
       <div style="display:flex;flex-direction:column;gap:14px;">
-
         <div style="background:var(--navy-light);border:1px solid var(--navy-mid);border-radius:14px;padding:1.5rem;">
           <div style="font-size:11px;font-weight:500;color:var(--navy);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Operations · Multi-timezone EA support</div>
           <div style="font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;">A Tuesday with an Operational Partner</div>
@@ -499,24 +486,25 @@
             <span style="font-size:11px;color:var(--muted);font-style:italic;">Consultation fee: UGX 100,000</span>
           </div>
         </div>
-<div style="background:var(--navy-light);border:1px solid var(--navy-mid);border-radius:14px;padding:1.5rem;">
-  <div style="font-size:11px;font-weight:500;color:var(--navy);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Operations · Systems Design · Three-Tool Architecture</div>
-  <div style="font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;">How Amara's Company Runs — Business Operating System</div>
-  <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px;">A 12-person fintech company across Johannesburg, Nairobi, Lagos, London, and Masaka had no central financial tracking, no document management structure, and no operational coordination system. This case study shows the Business OS built to fix that — three tools, each with a specific job, connected through defined workflows. Excel handles all financial data across five currencies. Google Drive stores every document in one place. Notion manages all projects, tasks, and team operations. Nothing overlaps. Everything connects.</div>
-  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
-    <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Excel</span>
-    <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Google Drive</span>
-    <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Notion</span>
-    <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Multi-currency</span>
-    <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">5 locations</span>
-    <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Distributed team</span>
-  </div>
-  <a href="business_os.html" target="_blank" style="display:inline-block;font-size:13px;font-weight:500;color:var(--navy-dark);background:var(--yellow);padding:8px 20px;border-radius:20px;text-decoration:none;">View case study ↗</a>
-</div>
+
+        <div style="background:var(--navy-light);border:1px solid var(--navy-mid);border-radius:14px;padding:1.5rem;">
+          <div style="font-size:11px;font-weight:500;color:var(--navy);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Operations · Systems Design · Three-Tool Architecture</div>
+          <div style="font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;">How Amara's Company Runs — Business Operating System</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px;">A 12-person fintech company across Johannesburg, Nairobi, Lagos, London, and Masaka had no central financial tracking, no document management structure, and no operational coordination system. This case study shows the Business OS built to fix that — three tools, each with a specific job, connected through defined workflows. Excel handles all financial data across five currencies. Google Drive stores every document in one place. Notion manages all projects, tasks, and team operations. Nothing overlaps. Everything connects.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+            <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Excel</span>
+            <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Google Drive</span>
+            <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Notion</span>
+            <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Multi-currency</span>
+            <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">5 locations</span>
+            <span style="font-size:11px;background:var(--yellow-light);border:1px solid var(--yellow);color:var(--yellow-dark);padding:3px 10px;border-radius:20px;">Distributed team</span>
+          </div>
+          <a href="business_os.html" target="_blank" style="display:inline-block;font-size:13px;font-weight:500;color:var(--navy-dark);background:var(--yellow);padding:8px 20px;border-radius:20px;text-decoration:none;">View case study ↗</a>
+        </div>
       </div>
     </div>
 
-        <div class="section">
+    <div class="section">
       <div class="section-label">Contact</div>
       <div class="contact-list">
         <div class="contact-row"><span class="contact-icon">✉</span><span class="contact-label">Email</span><span class="contact-val">pa.mferrister@gmail.com</span></div>
@@ -561,9 +549,9 @@
       <div class="sports-grid">
         <div class="sport-card"><div class="sport-emoji">⚽</div><div class="sport-type">Football</div><div class="sport-name">Premier League</div><div class="sport-team">❤️ Liverpool FC</div></div>
         <div class="sport-card"><div class="sport-emoji">☘️</div><div class="sport-type">Basketball</div><div class="sport-name">NBA</div><div class="sport-team">Boston Celtics</div></div>
-        <div class="sport-card"><div class="sport-emoji">🏀</div><div class="sport-type">Women's hoops</div><div class="sport-name">WNBA</div><div class="sport-team">Go Las Vegas Aces & Atlanta Dream</div></div>
+        <div class="sport-card"><div class="sport-emoji">🏀</div><div class="sport-type">Women's hoops</div><div class="sport-name">WNBA</div><div class="sport-team">Go Las Vegas Aces &amp; Atlanta Dream</div></div>
         <div class="sport-card"><div class="sport-emoji">🏎️</div><div class="sport-type">Formula 1</div><div class="sport-name">F1 Grand Prix</div><div class="sport-team">🔴 Scuderia Ferrari</div></div>
-        <div class="sport-card"><div class="sport-emoji">🏍️</div><div class="sport-type">Motorsport</div><div class="sport-name">MotoGP</div><div class="sport-team">Fabio Quartararo & Marc Márquez</div></div>
+        <div class="sport-card"><div class="sport-emoji">🏍️</div><div class="sport-type">Motorsport</div><div class="sport-name">MotoGP</div><div class="sport-team">Fabio Quartararo &amp; Marc Márquez</div></div>
         <div class="sport-card"><div class="sport-emoji">🎾</div><div class="sport-type">Tennis</div><div class="sport-name">Grand Slams</div><div class="sport-team">Sabalenka · Serena · Osaka</div></div>
       </div>
     </div>
