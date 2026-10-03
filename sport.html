@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ferrister in Sport</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#ffffff;color:#111111;font-size:15px;line-height:1.6;}
+
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #e8e8e8;
+  padding:0 clamp(1rem,5vw,3rem);
+  display:flex;align-items:center;justify-content:space-between;
+  height:56px;
+}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:18px;color:#111111;text-decoration:none;}
+.nav-links{display:flex;gap:6px;}
+.nav-link{font-size:13px;color:#555555;text-decoration:none;padding:6px 14px;border-radius:20px;transition:background 0.15s;border:1px solid transparent;}
+.nav-link:hover{background:#f0f0f0;color:#111111;}
+.nav-link.active{background:#111111;color:#ffffff;}
+
+.container{max-width:720px;margin:0 auto;padding:0 clamp(1rem,5vw,2rem);}
+
+.hero{padding:4rem 0 3rem;border-bottom:1px solid #e8e8e8;}
+.hero-tag{font-size:11px;font-weight:500;letter-spacing:0.08em;color:#888888;margin-bottom:1.25rem;font-style:italic;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(30px,5vw,44px);line-height:1.15;color:#111111;margin-bottom:1rem;font-weight:400;}
+.hero-sub{font-size:16px;color:#555555;line-height:1.75;max-width:520px;margin-bottom:1.5rem;font-weight:300;}
+
+.section{padding:2.5rem 0;border-bottom:1px solid #e8e8e8;}
+.section:last-child{border-bottom:none;}
+.section-label{font-size:12px;font-weight:500;letter-spacing:0.08em;color:#111111;margin-bottom:1.5rem;text-transform:uppercase;}
+
+.about-text{font-size:15px;color:#444444;line-height:1.85;font-weight:300;}
+.about-text p{margin-bottom:0.85rem;}
+.about-text p:last-child{margin-bottom:0;}
+
+.cert-list{display:flex;flex-direction:column;gap:10px;}
+.cert-item{background:#f5f5f5;border:1px solid #e0e0e0;border-radius:8px;padding:14px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.cert-name{font-size:14px;font-weight:500;color:#111111;margin-bottom:3px;}
+.cert-body{font-size:12px;color:#777777;}
+.cert-date{font-size:11px;color:#999999;white-space:nowrap;margin-top:2px;}
+
+.network-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;}
+.network-item{background:#f5f5f5;border:1px solid #e0e0e0;border-radius:8px;padding:14px;}
+.ni-label{font-size:13px;font-weight:500;color:#111111;margin-bottom:3px;}
+.ni-desc{font-size:11px;color:#777777;line-height:1.5;}
+
+.sports-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.sport-card{background:#f5f5f5;border:1px solid #e0e0e0;border-radius:8px;padding:12px;}
+.sport-emoji{font-size:20px;margin-bottom:5px;}
+.sport-type{font-size:10px;font-weight:500;color:#888888;text-transform:uppercase;letter-spacing:0.05em;}
+.sport-name{font-size:13px;font-weight:500;color:#111111;margin:3px 0;}
+.sport-team{font-size:11px;color:#555555;}
+
+.article-list{display:flex;flex-direction:column;gap:12px;}
+.article-item{border-bottom:1px solid #f0f0f0;padding-bottom:12px;}
+.article-item:last-child{border-bottom:none;padding-bottom:0;}
+.article-tag{font-size:10px;font-weight:500;color:#888888;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;}
+.article-title{font-size:15px;font-weight:500;color:#111111;margin-bottom:4px;}
+.article-desc{font-size:13px;color:#555555;line-height:1.6;font-weight:300;}
+
+.cmd-card{background:#111111;border-radius:10px;padding:1.75rem;color:#ffffff;margin-bottom:12px;}
+.cmd-title{font-family:'DM Serif Display',serif;font-size:22px;color:#ffffff;margin-bottom:0.5rem;font-weight:400;}
+.cmd-desc{font-size:14px;color:#aaaaaa;line-height:1.75;margin-bottom:1.25rem;font-weight:300;}
+.cmd-btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:10px 22px;border-radius:4px;background:#ffffff;color:#111111;border:none;cursor:pointer;text-decoration:none;transition:opacity 0.2s;}
+.cmd-btn:hover{opacity:0.85;}
+.cmd-btn.outline{background:transparent;color:#ffffff;border:1.5px solid #555555;margin-left:8px;}
+.cmd-btn.outline:hover{border-color:#ffffff;}
+
+.connect-list{display:flex;flex-direction:column;}
+.connect-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid #e8e8e8;}
+.connect-row:last-child{border-bottom:none;}
+.connect-label{font-size:12px;color:#888888;width:80px;flex-shrink:0;}
+.connect-val{font-size:14px;color:#111111;}
+.connect-val a{color:#111111;text-decoration:none;border-bottom:1px solid #cccccc;}
+.connect-val a:hover{border-color:#111111;}
+
+.dl-btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:10px 22px;border-radius:4px;background:#111111;color:#fff;border:none;cursor:pointer;text-decoration:none;transition:background 0.2s;margin-top:1rem;}
+.dl-btn:hover{background:#333333;}
+
+footer{border-top:1px solid #e8e8e8;padding:1.5rem clamp(1rem,5vw,3rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px;color:#888888;}
+
+@media(max-width:500px){.sports-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Ferrister Mirembe</a>
+  <div class="nav-links">
+    <a class="nav-link" href="admin.html">Admin</a>
+    <a class="nav-link active" href="sport.html">Sport</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="hero">
+    <p class="hero-tag">Ferrister in Sport</p>
+    <h1>African sport.<br>Told honestly.</h1>
+    <p class="hero-sub">I research, write, and publish on African sport, business, and culture. I am also building a career in sports administration and governance — combining operational experience with genuine knowledge of the African sports landscape.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Who I am in sport</div>
+    <div class="about-text">
+      <p>I came to sport seriously in 2024. What started as a growing interest became a professional commitment — I launched CMD Sport Africa on Substack, began covering African sport from a business and governance angle, and started building a network of practitioners across the continent.</p>
+      <p>I follow Formula One, the Premier League, NBA, WNBA, rugby, and tennis with active interest in the commercial and governance dimensions of each. My specific research focus is on how African sport is structured, funded, and told — and how it could be structured, funded, and told better.</p>
+      <p>I hold IOC certifications in Professional Sport Management and Sport Event Management. I volunteer with BOS Africa, a Pan-African sports business education institute. I am mentored through the SIGAWomen Global Mentorship Programme in sports governance and leadership.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Certifications and programmes</div>
+    <div class="cert-list">
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">Professional Sport Management Course</div>
+          <div class="cert-body">International Olympic Committee — sport governance, commercial strategy, athlete welfare, the business of international sport</div>
+        </div>
+        <div class="cert-date">Sep 2026</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">Sport Event Management Course</div>
+          <div class="cert-body">International Olympic Committee — event planning, operations, logistics, stakeholder management, and legacy planning</div>
+        </div>
+        <div class="cert-date">Sep 2026</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">SIGAWomen Global Mentorship Programme</div>
+          <div class="cert-body">Sports Governance and Leadership Cohort 2026 — mentored by Andida Bouma, international sports governance leader</div>
+        </div>
+        <div class="cert-date">2026</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Networks and affiliations</div>
+    <div class="network-grid">
+      <div class="network-item">
+        <div class="ni-label">BOS Africa</div>
+        <div class="ni-desc">Volunteer at the Business of Sports Institute Africa — research, document drafting, speaker and partner outreach, and institutional document development</div>
+      </div>
+      <div class="network-item">
+        <div class="ni-label">SIGAWomen</div>
+        <div class="ni-desc">Global Mentorship Programme 2026 cohort — women in sports governance and leadership</div>
+      </div>
+      <div class="network-item">
+        <div class="ni-label">CMD Sport Africa</div>
+        <div class="ni-desc">Founder — research, publishing, and interviews on African sport and business</div>
+      </div>
+      <div class="network-item">
+        <div class="ni-label">Africa Sports Unified</div>
+        <div class="ni-desc">Professional network connection in Pan-African sports development</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">CMD Sport Africa</div>
+    <div class="cmd-card">
+      <div class="cmd-title">CMD Sport Africa</div>
+      <div class="cmd-desc">An independent research and publishing platform covering sport, business, culture, and governance across Africa. Long-form analysis, interviews with practitioners, and honest takes on how African sport is built and who is building it.</div>
+      <a class="cmd-btn" href="https://cmdsportafrica.substack.com" target="_blank">Read on Substack</a>
+      <a class="cmd-btn outline" href="https://www.instagram.com/cmdsportafrica" target="_blank">Instagram</a>
+    </div>
+
+    <div class="section-label" style="margin-top:1.5rem;">Research areas</div>
+    <div class="article-list">
+      <div class="article-item">
+        <div class="article-tag">Formula One</div>
+        <div class="article-title">F1 and Africa — the commercial and infrastructure story</div>
+        <div class="article-desc">Examining Formula One's relationship with the African continent, from race hosting economics to the Fan Zone model and what a permanent African Grand Prix would actually require.</div>
+      </div>
+      <div class="article-item">
+        <div class="article-tag">Basketball</div>
+        <div class="article-title">Women's basketball ecosystem development in Africa</div>
+        <div class="article-desc">How women's basketball is being built across Uganda and the continent — leagues, pipelines, funding, and the people making it happen.</div>
+      </div>
+      <div class="article-item">
+        <div class="article-tag">Football</div>
+        <div class="article-title">Alumni school football leagues as talent pipelines</div>
+        <div class="article-desc">The economics, community function, and untapped potential of Uganda's alumni football league ecosystem as a scouting and development infrastructure.</div>
+      </div>
+      <div class="article-item">
+        <div class="article-tag">Governance</div>
+        <div class="article-title">African sport governance and the AU's role</div>
+        <div class="article-desc">How African sporting bodies are structured, where governance gaps create commercial barriers, and what continental coordination could unlock.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">What I follow</div>
+    <div class="sports-grid">
+      <div class="sport-card"><div class="sport-emoji">⚽</div><div class="sport-type">Football</div><div class="sport-name">Premier League</div><div class="sport-team">Liverpool FC</div></div>
+      <div class="sport-card"><div class="sport-emoji">☘️</div><div class="sport-type">Basketball</div><div class="sport-name">NBA</div><div class="sport-team">Boston Celtics</div></div>
+      <div class="sport-card"><div class="sport-emoji">🏀</div><div class="sport-type">Basketball</div><div class="sport-name">WNBA</div><div class="sport-team">Las Vegas Aces</div></div>
+      <div class="sport-card"><div class="sport-emoji">🏎️</div><div class="sport-type">Motorsport</div><div class="sport-name">Formula One</div><div class="sport-team">Scuderia Ferrari</div></div>
+      <div class="sport-card"><div class="sport-emoji">🏉</div><div class="sport-type">Rugby</div><div class="sport-name">Rugby Union</div><div class="sport-team">Africa and beyond</div></div>
+      <div class="sport-card"><div class="sport-emoji">🎾</div><div class="sport-type">Tennis</div><div class="sport-name">Grand Slams</div><div class="sport-team">Sabalenka · Osaka</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Sports CV</div>
+    <div class="about-text">
+      <p>My sports CV covers my IOC certifications, BOS Africa volunteer work, SIGAWomen mentorship, CMD Sport Africa, and my administrative background as the operational foundation I bring to the sports sector.</p>
+    </div>
+    <a class="dl-btn" href="Ferrister_Mirembe_Sports_CV_.pdf" download>Download Sports CV</a>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Connect</div>
+    <div class="connect-list">
+      <div class="connect-row"><span class="connect-label">Email</span><span class="connect-val"><a href="mailto:mferrister@gmail.com">mferrister@gmail.com</a></span></div>
+      <div class="connect-row"><span class="connect-label">Substack</span><span class="connect-val"><a href="https://cmdsportafrica.substack.com" target="_blank">CMD Sport Africa</a></span></div>
+      <div class="connect-row"><span class="connect-label">Instagram</span><span class="connect-val"><a href="https://www.instagram.com/mferrister" target="_blank">@mferrister</a></span></div>
+      <div class="connect-row"><span class="connect-label">LinkedIn</span><span class="connect-val"><a href="https://www.linkedin.com/in/ferrister-mirembe-2b4201278/" target="_blank">Ferrister Mirembe</a></span></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>Ferrister Mirembe · Sport</span>
+  <a href="index.html" style="color:#888888;text-decoration:none;font-size:12px;">Back to home</a>
+</footer>
+
+</body>
+</html>
