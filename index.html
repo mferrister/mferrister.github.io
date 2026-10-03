@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ferrister Mirembe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#ffffff;
+  color:#111111;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* NAV */
+nav{
+  padding:0 clamp(1.5rem,6vw,4rem);
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #e8e8e8;
+  position:sticky;top:0;z-index:100;
+  background:#ffffff;
+}
+.nav-logo{
+  font-family:'DM Serif Display',serif;
+  font-size:18px;
+  color:#111111;
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:6px;}
+.nav-link{
+  font-size:13px;
+  color:#555555;
+  text-decoration:none;
+  padding:6px 14px;
+  border-radius:20px;
+  transition:background 0.15s,color 0.15s;
+  border:1px solid transparent;
+}
+.nav-link:hover{background:#f0f0f0;color:#111111;}
+.nav-link.active{background:#111111;color:#ffffff;}
+
+/* HERO */
+.hero{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:5rem clamp(1.5rem,6vw,4rem) 4rem;
+  max-width:760px;
+}
+.hero-tag{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.1em;
+  color:#888888;
+  margin-bottom:1.75rem;
+  font-style:italic;
+}
+.hero h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(36px,6vw,58px);
+  line-height:1.1;
+  color:#111111;
+  margin-bottom:2rem;
+  font-weight:400;
+}
+.hero-body{
+  font-size:17px;
+  line-height:1.85;
+  color:#333333;
+  max-width:620px;
+  margin-bottom:3rem;
+  font-weight:300;
+}
+.hero-body p{margin-bottom:1.1rem;}
+.hero-body p:last-child{margin-bottom:0;}
+
+/* BUTTONS */
+.path-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+.path-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 28px;
+  border-radius:4px;
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;
+  font-weight:500;
+  text-decoration:none;
+  transition:transform 0.15s,box-shadow 0.15s;
+  cursor:pointer;
+  border:none;
+}
+.path-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+.btn-admin{
+  background:#111111;
+  color:#ffffff;
+}
+.btn-sport{
+  background:#ffffff;
+  color:#111111;
+  border:1.5px solid #111111;
+}
+.btn-arrow{font-size:16px;transition:transform 0.15s;}
+.path-btn:hover .btn-arrow{transform:translateX(3px);}
+
+/* FOOTER */
+footer{
+  padding:1.5rem clamp(1.5rem,6vw,4rem);
+  border-top:1px solid #e8e8e8;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  font-size:12px;
+  color:#888888;
+}
+
+@media(max-width:500px){
+  .path-buttons{flex-direction:column;align-items:flex-start;}
+  .path-btn{width:100%;justify-content:space-between;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Ferrister Mirembe</a>
+  <div class="nav-links">
+    <a class="nav-link" href="admin.html">Admin</a>
+    <a class="nav-link" href="sport.html">Sport</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <p class="hero-tag">Masaka, Uganda</p>
+  <h1>Hello,<br>I am Ferrister<br>Mirembe.</h1>
+  <div class="hero-body">
+    <p>I am an Administrative Assistant and Executive Support professional based in Uganda. I am also exploring a career in sport, bringing my experience as an administrative professional but also as a writer and researcher — one of the people trying to tell the African sport story more honestly and more seriously than it has been told before.</p>
+    <p>I did not plan to be in both worlds at once. But I am, and I have stopped pretending that one is more serious than the other, or that having both means I cannot focus and deliver. At the intersection of both worlds is a shared ambition: to grow in leadership, business, and operations.</p>
+    <p>If you are looking for someone to support your executive team or operations, you are in the right place. If you are here for the sport side, you are also in the right place.</p>
+  </div>
+  <div class="path-buttons">
+    <a class="path-btn btn-admin" href="admin.html">
+      Ferrister in Admin <span class="btn-arrow">&#8594;</span>
+    </a>
+    <a class="path-btn btn-sport" href="sport.html">
+      Ferrister in Sport <span class="btn-arrow">&#8594;</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>Ferrister Mirembe</span>
+  <span>mferrister@gmail.com</span>
+</footer>
+
+</body>
+</html>
