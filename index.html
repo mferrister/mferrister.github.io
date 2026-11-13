@@ -16,20 +16,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
   <style>
     :root {
-      --black: #111111;
+      --black: #171717;
       --white: #ffffff;
-      --grey: #777777;
-      --light-grey: #f3f3f3;
+      --burgundy: #70020F;
+      --grey: #666666;
+      --light-grey: #E9E9E9;
       --mid-grey: #dedede;
       --line: #d8d8d8;
-      --serif: "DM Serif Display", Georgia, serif;
-      --sans: "DM Sans", Arial, sans-serif;
+      --heading-font: "Jost", Arial, sans-serif;
+      --body-font: "Work Sans", Arial, sans-serif;
     }
 
     * {
@@ -44,7 +45,7 @@
       margin: 0;
       background: var(--white);
       color: var(--black);
-      font-family: var(--sans);
+      font-family: var(--body-font);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -103,11 +104,11 @@
       gap: 12px;
       min-height: 43px;
       padding: 11px 19px;
-      border: 1px solid var(--black);
+      border: 1px solid var(--burgundy);
       border-radius: 999px;
-      background: var(--black);
+      background: var(--burgundy);
       color: var(--white);
-      font-family: var(--sans);
+      font-family: var(--body-font);
       font-size: 12px;
       font-weight: 600;
       line-height: 1.2;
@@ -119,16 +120,18 @@
 
     .pill:hover {
       background: var(--white);
-      color: var(--black);
+      color: var(--burgundy);
     }
 
     .pill-outline {
+      border-color: var(--black);
       background: var(--white);
       color: var(--black);
     }
 
     .pill-outline:hover {
-      background: var(--black);
+      background: var(--burgundy);
+      border-color: var(--burgundy);
       color: var(--white);
     }
 
@@ -183,7 +186,7 @@
 
     .eyebrow {
       margin: 0 0 20px;
-      color: #c8c8c8;
+      color: #d0d0d0;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 2px;
@@ -193,7 +196,7 @@
 
     .hero h1 {
       margin: 0 0 22px;
-      font-family: var(--serif);
+      font-family: var(--heading-font);
       font-size: clamp(52px, 6.6vw, 78px);
       font-weight: 400;
       letter-spacing: -2px;
@@ -230,7 +233,7 @@
 
     .section-heading {
       margin: 0 0 25px;
-      font-family: var(--serif);
+      font-family: var(--heading-font);
       font-size: clamp(32px, 4vw, 43px);
       font-weight: 400;
       letter-spacing: -0.8px;
@@ -298,7 +301,7 @@
 
     .pathway-card:hover {
       transform: translateY(-3px);
-      border-color: var(--black);
+      border-color: var(--burgundy);
       background: var(--light-grey);
     }
 
@@ -312,7 +315,7 @@
 
     .pathway-card h3 {
       margin: 0 0 14px;
-      font-family: var(--serif);
+      font-family: var(--heading-font);
       font-size: 29px;
       font-weight: 400;
       letter-spacing: -0.4px;
@@ -333,7 +336,8 @@
       gap: 12px;
       margin-top: auto;
       padding-bottom: 5px;
-      border-bottom: 1px solid var(--black);
+      border-bottom: 1px solid var(--burgundy);
+      color: var(--burgundy);
       font-size: 12px;
       font-weight: 700;
     }
@@ -371,7 +375,7 @@
 
     .contact-copy h2 {
       margin: 0 0 12px;
-      font-family: var(--serif);
+      font-family: var(--heading-font);
       font-size: clamp(30px, 4vw, 42px);
       font-weight: 400;
       letter-spacing: -0.7px;
@@ -389,11 +393,12 @@
       flex-shrink: 0;
       border-color: var(--white);
       background: var(--white);
-      color: var(--black);
+      color: var(--burgundy);
     }
 
     .contact-section .pill:hover {
-      background: var(--black);
+      background: var(--burgundy);
+      border-color: var(--white);
       color: var(--white);
     }
 
@@ -419,7 +424,7 @@
     }
 
     .footer-email:hover {
-      color: var(--black);
+      color: var(--burgundy);
     }
 
     /* Responsive layout */
