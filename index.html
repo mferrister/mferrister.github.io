@@ -371,10 +371,10 @@
       align-items: center;
       justify-content: space-between;
       gap: 35px;
-      padding: 48px 0;
-      border-top: 1px solid var(--line);
-      background: var(--white);
-      color: var(--black);
+      padding: 48px;
+      border-radius: 20px;
+      background-color: #70020F;
+      color: #FFFFFF;
     }
 
     .contact-copy {
@@ -383,7 +383,7 @@
 
     .contact-copy .section-label {
       margin-bottom: 15px;
-      color: var(--grey);
+      color: #F0DADD;
     }
 
     .contact-copy h2 {
@@ -397,9 +397,22 @@
 
     .contact-copy p {
       margin: 0;
-      color: #555555;
+      color: #F5E9EB;
       font-size: 12px;
       line-height: 1.9;
+    }
+
+    .contact-section .pill {
+      flex-shrink: 0;
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--burgundy);
+    }
+
+    .contact-section .pill:hover {
+      background: var(--burgundy);
+      border-color: var(--white);
+      color: var(--white);
     }
 
     /* Footer */
@@ -471,7 +484,7 @@
       .contact-section {
         align-items: flex-start;
         flex-direction: column;
-        padding: 40px 0;
+        padding: 35px;
       }
     }
 
@@ -567,7 +580,8 @@
 
       .contact-section {
         gap: 25px;
-        padding: 35px 0;
+        padding: 30px 25px;
+        border-radius: 17px;
       }
 
       .site-footer {
